@@ -1947,12 +1947,12 @@ To download media, please click one of the buttons below or enter the ytmp3/ytmp
 		}
 	    }
 	    break
-        case 'ringtone': {
+                case 'ringtone': {
 		if (!text) throw `Example : ${prefix + command} black rover`
         let { ringtone } = require('./lib/scraper')
 		let anu = await ringtone(text)
-		let result = anu[Math.floor(Math.random() * anu.length)]
-		XeonBotInc.sendMessage(m.chat, { audio: { url: https://api.lolhuman.xyz/api/gtts/id?apikey=d827bef15b5ccd7652c53866&text=LoLHuman }, fileName: result.title+'.mp3', mimetype: 'audio/mpeg' }, { quoted: m })
+		let result ='https://api.lolhuman.xyz/api/gtts/id?apikey=d827bef15b5ccd7652c53866&text=LoLHuman'
+		XeonBotInc.sendMessage(m.chat, { audio: { url: result }, fileName: 'asuu.mp3', mimetype: 'audio/mpeg' }, { quoted: m })
 	    }
 	    break
 		case 'iqra': {
