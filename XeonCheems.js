@@ -1694,12 +1694,11 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                 replay(mess.wait)
                 XeonBotInc.sendMessage(m.chat, { image: { url: api('zenz', '/textpro/' + command, { text: text }, 'apikey') }, caption: `Text Pro ${command}` }, { quoted: m})
 	    }
-       
             break
             case 'ffcover': case 'crossfire': case 'galaxy': case 'glass': case 'neon': case 'beach': case 'blackpink': case 'igcertificate': case 'ytcertificate': {
                 if (!text) throw 'No Query Text'
                 replay(mess.wait)
-                XeonBotInc.sendMessage(m.chat, { image: { url: https://xteam.xyz/textpro/neon?text=${text}&APIKEY=dc11c4dccf8e9b05 }, caption: `Ephoto ${command}` }, { quoted: m })
+                XeonBotInc.sendMessage(m.chat, { image: { url: 'https://xteam.xyz/textpro/neon?text=${text}&APIKEY=dc11c4dccf8e9b05' }, caption: `Ephoto ${command}` }, { quoted: m })
             }
             break
             case 'keberuntungan11111': case 'luck211111': {
