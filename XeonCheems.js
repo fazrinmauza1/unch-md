@@ -1627,7 +1627,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                     {buttonId: `coffe`, buttonText: {displayText: '➡️Next Image➡️'}, type: 1}
                 ]
                 let buttonMessage = {
-                    image: { url: 'https://coffee.alexflipnote.dev/random' },
+                    image: { url: 'https://xteam.xyz/textpro/neon?text=${text}&APIKEY=dc11c4dccf8e9b05' },
                     caption: `☕Random Coffee☕`,
                     footer: XeonBotInc.user.name,
                     buttons: buttons,
