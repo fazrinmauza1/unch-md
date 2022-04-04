@@ -14,11 +14,11 @@ const chalk = require('chalk')
 
 //═══════[api website]════════\\
 global.APIs = {
-	zenz: 'https://zenzapi.xyz', //credit zenz, thank you so much bro <3
+	zenz: 'https://api.lolhuman.xyz/api', //credit zenz, thank you so much bro <3
 }
 //═══════[api key of the website]════════\\
 global.APIKeys = {
-	'https://zenzapi.xyz': '99ceb70603', //thank you to zenz
+	'https://api.lolhuman.xyz/api': 'd827bef15b5ccd7652c53866', //thank you to zenz
 }
 
 //═══════[modification]════════\\
