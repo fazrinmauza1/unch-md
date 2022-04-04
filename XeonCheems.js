@@ -1623,12 +1623,12 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
             }
 	    break
             case 'coffee': case 'kopi': 
-yyko = await getBuffer(`https://xteam.xyz/textpro/neon?text=${text}&APIKEY=dc11c4dccf8e9b05`){
+            let result ='https://xteam.xyz/textpro/neon?text=${text}&APIKEY=dc11c4dccf8e9b05'
            let buttons = [
                     {buttonId: `coffe`, buttonText: {displayText: '➡️Next Image➡️'}, type: 1}
                 ]
                 let buttonMessage = {
-                    image: { url: yyko},
+                    image: { url: result},
                     caption: `☕Random Coffee☕`,
                     footer: XeonBotInc.user.name,
                     buttons: buttons,
