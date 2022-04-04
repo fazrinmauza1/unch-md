@@ -1622,21 +1622,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                 XeonBotInc.sendMessage(m.chat, { image: { url: random.female }, caption: `Couple Female` }, { quoted: m })
             }
 	    break
-            case 'coffee': case 'kopi': 
-            let result ='https://xteam.xyz/textpro/neon?text=${text}&APIKEY=dc11c4dccf8e9b05'
-           let buttons = [
-                    {buttonId: `coffe`, buttonText: {displayText: '➡️Next Image➡️'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: result},
-                    caption: `☕Random Coffee☕`,
-                    footer: XeonBotInc.user.name,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
-            }
-            break
+            
             case 'wallpaper': {
                 if (!text) throw 'Enter Query Title'
 		let { wallpaper } = require('./lib/scraper')
@@ -1713,7 +1699,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
             case 'ffcover': case 'crossfire': case 'galaxy': case 'glass': case 'neon': case 'beach': case 'blackpink': case 'igcertificate': case 'ytcertificate': {
                 if (!text) throw 'No Query Text'
                 replay(mess.wait)
-                XeonBotInc.sendMessage(m.chat, { image: { url: api('zenz', '/ephoto/' + command, { text: text }, 'apikey') }, caption: `Ephoto ${command}` }, { quoted: m })
+                XeonBotInc.sendMessage(m.chat, { image: { url: https://xteam.xyz/textpro/neon?text=${text}&APIKEY=dc11c4dccf8e9b05 }, caption: `Ephoto ${command}` }, { quoted: m })
             }
             break
             case 'keberuntungan11111': case 'luck211111': {
