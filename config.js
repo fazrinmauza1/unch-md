@@ -18,7 +18,7 @@ global.APIs = {
 }
 //═══════[api key of the website]════════\\
 global.APIKeys = {
-	'https://api.lolhuman.xyz/api': 'd827bef15b5ccd7652c53866', //thank you to zenz
+	'https://api.lolhuman.xyz/api': 'e6dc6580d52d9fb557b85ef9', //thank you to zenz
 }
 
 //═══════[modification]════════\\
