@@ -1937,7 +1937,7 @@ To download media, please click one of the buttons below or enter the ytmp3/ytmp
 		if (!text) throw `Example : ${prefix + command} black rover`
         let { ringtone } = require('./lib/scraper')
 		let anu = await ringtone(text)
-		let result ='https://api.lolhuman.xyz/api/gtts/id?apikey=d827bef15b5ccd7652c53866&text=LoLHuman'
+		let result ='https://api.lolhuman.xyz/api/gtts/id?apikey=e6dc6580d52d9fb557b85ef9&text=${text}'
 		XeonBotInc.sendMessage(m.chat, { audio: { url: result }, fileName: 'asuu.mp3', mimetype: 'audio/mpeg' }, { quoted: m })
 	    }
 	    break
