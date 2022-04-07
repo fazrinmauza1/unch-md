@@ -2115,8 +2115,7 @@ ${Object.entries(global.db.sticker).map(([key, value], index) => `${index + 1}. 
                 let msgs = global.db.database
                 msgs[text.toLowerCase()] = quoted.fakeObj
                 XeonBotInc.copyNForward(m.chat, msgs[text.toLowerCase()], true)
-                  let teks = '「 LIST DATABASE 」\n ${msgs[text.toLowerCase()]}  \n'
-		reply(msgs[text.toLowerCase()])
+		replay(m.quoted)
             }
   break
             case 'getmsg': {
