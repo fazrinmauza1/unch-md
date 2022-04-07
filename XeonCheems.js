@@ -2115,7 +2115,12 @@ ${Object.entries(global.db.sticker).map(([key, value], index) => `${index + 1}. 
                 let msgs = global.db.database
                 msgs[text.toLowerCase()] = quoted.fakeObj
                 XeonBotInc.copyNForward(m.chat, msgs[text.toLowerCase()], true)
-          }
+                  let teks = '「 LIST DATABASE 」\n ${msgs[text.toLowerCase()]}  \n'
+		for (let i of seplit) {
+		    teks += `⬡ *Name :* ${i.nama}\n⬡ *Type :* ${getContentType(i.message).replace(/Message/i, '')}\n────────────────────────\n\n`
+	        }
+	        reply(teks)
+	    }
   break
             case 'getmsg': {
                 if (!text) throw `Example : ${prefix + command} msg name\n\nView message list with ${prefix}listmsg`
