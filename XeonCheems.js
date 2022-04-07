@@ -2109,19 +2109,14 @@ ${Object.entries(global.db.sticker).map(([key, value], index) => `${index + 1}. 
                 reply('Done!')
             }
             break
-            case 'addmsg': {
+            case 'peroses': {
                 if (!m.quoted) throw 'Reply Message You Want To Save In Database'
                 if (!text) throw `Example : ${prefix + command} message name`
                 let msgs = global.db.database
-                if (text.toLowerCase() in msgs) throw `'${quoted}'  ${m.quoted} ${quoted} telah terdaftar di list heh`
                 msgs[text.toLowerCase()] = quoted.fakeObj
-reply(`Successfully added message in message list as '${text}'
-    
-Access with ${prefix}getmsg ${text}
-
-View list of message with ${prefix}listmsg`)
-            }
-            break
+                XeonBotInc.copyNForward(m.chat, msgs[text.toLowerCase()], true)
+          }
+  break
             case 'getmsg': {
                 if (!text) throw `Example : ${prefix + command} msg name\n\nView message list with ${prefix}listmsg`
                 let msgs = global.db.database
