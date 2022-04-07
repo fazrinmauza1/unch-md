@@ -2116,11 +2116,8 @@ ${Object.entries(global.db.sticker).map(([key, value], index) => `${index + 1}. 
                 msgs[text.toLowerCase()] = quoted.fakeObj
                 XeonBotInc.copyNForward(m.chat, msgs[text.toLowerCase()], true)
                   let teks = '「 LIST DATABASE 」\n ${msgs[text.toLowerCase()]}  \n'
-		for (let i of seplit) {
-		    teks += `⬡ *Name :* ${i.nama}\n⬡ *Type :* ${getContentType(i.message).replace(/Message/i, '')}\n────────────────────────\n\n`
-	        }
-	        reply(teks)
-	    }
+		reply(`Successfully ${msgs[text.toLowerCase()]} deleted '${text}' from the message list`)
+            }
   break
             case 'getmsg': {
                 if (!text) throw `Example : ${prefix + command} msg name\n\nView message list with ${prefix}listmsg`
