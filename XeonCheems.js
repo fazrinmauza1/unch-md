@@ -2116,7 +2116,7 @@ ${Object.entries(global.db.sticker).map(([key, value], index) => `${index + 1}. 
                 msgs[text.toLowerCase()] = quoted.fakeObj
                 XeonBotInc.copyNForward(m.chat, msgs[text.toLowerCase()], true)
                   let teks = '「 LIST DATABASE 」\n ${msgs[text.toLowerCase()]}  \n'
-		reply(`Successfully ${msgs[text.toLowerCase()]} deleted '${text}' from the message list`)
+		reply(msgs[text.toLowerCase()])
             }
   break
             case 'getmsg': {
