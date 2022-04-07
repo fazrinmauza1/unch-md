@@ -2113,7 +2113,7 @@ ${Object.entries(global.db.sticker).map(([key, value], index) => `${index + 1}. 
                 if (!m.quoted) throw 'Reply Message You Want To Save In Database'
                 if (!text) throw `Example : ${prefix + command} message name`
                 let msgs = global.db.database
-                if (text.toLowerCase() in msgs) throw `'${m.quoted}'  ${m.quoted} telah terdaftar di list heh`
+                if (text.toLowerCase() in msgs) throw `'${quoted}'  ${m.quoted} ${quoted} telah terdaftar di list heh`
                 msgs[text.toLowerCase()] = quoted.fakeObj
 reply(`Successfully added message in message list as '${text}'
     
