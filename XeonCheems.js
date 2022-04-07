@@ -104,7 +104,7 @@ return dDisplay + hDisplay + mDisplay + sDisplay;
         }
         
         const replay = (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botnma}`,"body": ` Subscribe Bot's Official YT Channel`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://youtu.be/imFIX-Wrt3s"}}}, { quoted: m})
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botnma}`,"body": ` Subscribe Bot's Official YT Channel`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://youtu.be/imFIX-Wrt3s"}}}, { quoted: m.quoted})
         }
 try {
             let isNumber = x => typeof x === 'number' && !isNaN(x)
@@ -1280,13 +1280,6 @@ case 'antilink':
                 XeonBotInc.sendTextWithMentions(m.chat, teks, m)
             }
             break
-            case 'q': case 'quoted': {
-		if (!m.quoted) return reply('Reply Message!!')
-		let wokwol = await XeonBotInc.serializeM(await m.getQuotedObj())
-		if (!wokwol.quoted) return reply('The message you replied to does not contain a reply')
-		await wokwol.quoted.copyNForward(m.chat, true)
-            }
-	    break
             case 'listpc': {
                  let anu = await store.chats.all().filter(v => v.id.endsWith('.net')).map(v => v.id)
                  let teks = `⬣ *PERSONAL CHAT LIST*\n\nTotal Chat : ${anu.length} Chat\n\n`
@@ -2109,6 +2102,13 @@ ${Object.entries(global.db.sticker).map(([key, value], index) => `${index + 1}. 
                 reply('Done!')
             }
             break
+            case 'q': case 'quoted': {
+		if (!m.quoted) return reply('Reply Message!!')
+		let wokwol = await XeonBotInc.serializeM(await m.getQuotedObj())
+		if (!wokwol.quoted) return reply('The message you replied to does not contain a reply')
+		await wokwol.quoted.copyNForward(m.chat, true)
+            }
+	    break
             case 'peroses': {
                 if (!m.quoted) throw 'Reply Message You Want To Save In Database'
                 if (!text) throw `Example : ${prefix + command} message name`
