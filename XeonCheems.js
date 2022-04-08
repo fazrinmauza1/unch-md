@@ -497,6 +497,11 @@ In ${clockString(new Date - user.afkTime)}
                 reply(`${m.pushName} Already Afk${text ? ': ' + text : ''}`)
             }
             break	
+            case 'dff' :
+            reply(`
+You came back online from AFK${user.afkReason ? ' after ' + user.afkReason : ''}
+In ${clockString(new Date - user.afkTime)}
+`.trim())
         case 'ttc': case 'ttt': case 'tictactoe': {
             let TicTacToe = require("./lib/tictactoe")
             this.game = this.game ? this.game : {}
