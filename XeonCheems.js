@@ -478,17 +478,6 @@ He's in Offline/AFK, ${reason ? 'with reason ' + reason : 'no reason'}
 Its been ${clockString(new Date - afkTime)}
 `.trim())
         }
-
-        if (db.users[m.sender].afkTime > -1) {
-            let user = global.db.users[m.sender]
-            reply(`
-You came back online from AFK${user.afkReason ? ' after ' + user.afkReason : ''}
-In ${clockString(new Date - user.afkTime)}
-`.trim())
-            user.afkTime = -1
-            user.afkReason = ''
-        }
-	    
         switch(command) {
 	    case 'afk': {
                 let user = global.db.users[m.sender]
