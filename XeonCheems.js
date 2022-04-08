@@ -2131,12 +2131,7 @@ ${Object.entries(global.db.sticker).map(([key, value], index) => `${index + 1}. 
             }
             break
             case 'listmsg': {
-                let msgs = JSON.parse(fs.readFileSync('./src/database.json'))
-	        let seplit = Object.entries(global.db.database).map(([nama, isi]) => { return { nama, ...isi } })
-		let teks = '「 LIST DATABASE 」haha\n\n'
-		for (let i of seplit) {
-		    teks += `⬡ *hehe Name :* ${i.nama}\n⬡ *Type :* ${getContentType(i.message).replace(/Message/i, '')}\n────────────────────────\n\n`
-	        }
+		let teks = '「 LIST DATABASE 」haha\n\ ${text} n'
 	        reply(teks)
 	    }
 	    break
