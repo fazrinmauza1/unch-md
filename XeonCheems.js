@@ -2131,8 +2131,7 @@ ${Object.entries(global.db.sticker).map(([key, value], index) => `${index + 1}. 
             }
             break
             case 'listmsg': {
-		let teks = '「 LIST DATABASE 」haha\n\ ${text} n'
-	        reply(teks)
+	        reply(`Successfully added message in message list as '${text}'
 	    }
 	    break
             case 'delmsg': case 'deletemsg': {
