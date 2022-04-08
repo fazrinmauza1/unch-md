@@ -2131,7 +2131,7 @@ ${Object.entries(global.db.sticker).map(([key, value], index) => `${index + 1}. 
             }
             break
             case 'listmsg': {
-	        reply(`Successfully added message in message list as '${text}'
+	        reply(`Successfully added message in message list as '${text}' `)
 	    }
 	    break
             case 'delmsg': case 'deletemsg': {
