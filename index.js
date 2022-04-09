@@ -85,6 +85,71 @@ async function startXeonBotInc() {
                 }
                 
 //═══════[welcome]════════\\
+            	timestampe = speed();
+latensie = speed() - timestampe
+                anu = ``
+const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
+                    templateMessage: {
+                        hydratedTemplate: {
+                            hydratedContentText: anu,
+                            locationMessage: {
+                            jpegThumbnail: fs.readFileSync('./XeonMedia/cheemspic.jpg')},
+                            hydratedFooterText: `Hi 🤚 ${pushname}
+How Are You? 😊
+
+
+❏「 Fleyvin Shop 」
+
+┏━━⬣   🎀  𝑀𝑒𝓃??𝓊𝒶𝓁  🎀
+┃⬡ Diamond Free Fire (via id)
+┃⬡ Diamond Mobile Legends (via id)
+┃⬡ Voucher Garena Shell
+┃⬡ OTP indo (+62) / NOKOS
+┃⬡ Jasa Pembuatan BOT WhatsApp
+┗⬣
+
+━━━━━ 𝗞𝗼𝗱𝗲 𝗕𝗼𝘁 ━━━━━
+#ff = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐃𝐌 𝐅𝐅
+#ml = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐃𝐌 𝐅𝐅
+#gs = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐆𝐚𝐫𝐞𝐧𝐚 𝐒𝐡𝐞𝐥𝐥
+#otp = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐎𝐓𝐏
+#bot = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐉𝐚𝐬𝐚 𝐁𝐮𝐚𝐭 𝐁𝐎𝐓
+#pay = 𝐃𝐚𝐟𝐭𝐚𝐫 𝐌𝐞𝐭𝐨𝐝𝐞 𝐏𝐞𝐦𝐛𝐚𝐲𝐚𝐫𝐚𝐧 𝐅𝐥𝐞𝐲𝐯𝐢𝐧 𝐒𝐡𝐨𝐩
+
+
+𝘒𝘭𝘪𝘬 𝘛𝘰𝘮𝘣𝘰𝘭 𝘥𝘪 𝘉𝘢𝘸𝘢𝘩 𝘪𝘯𝘪
+`,
+                            hydratedButtons: [{
+                                urlButton: {
+                                    displayText: 'Aplikasi Fleyvin Shop📱',
+                                    url: 'https://youtu.be/imFIX-Wrt3s'
+                                }
+                            }, {
+                            	urlButton: {
+                                displayText: 'YouTube📍',
+                                    url: 'https://github.com/DGXeon/CheemsBot-MD'
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: '𝗟𝗶𝘀𝘁 𝗠𝗲𝗻𝘂🧾',
+                                    id: `${prefix}list`
+                                }
+                                }, {
+                                quickReplyButton: {
+                                    displayText: '𝗠𝗲𝘁𝗼𝗱𝗲 𝗣𝗲𝗺𝗯𝗮𝘆𝗮𝗿𝗮𝗻💳',
+                                    id: `${prefix}pay`
+                                }
+                                }, {
+                                quickReplyButton: {
+                                    displayText: '👤Admin👤',
+                                    id: `${prefix}owner`
+                                }
+                            }]
+                        }
+                    }
+                }), { userJid: m.chat })
+                
+  
 let nama = await XeonBotInc.getName(num)
 memb = metadata.participants.length
 
@@ -92,7 +157,7 @@ Kon = await getBuffer(`https://hardianto.xyz/api/welcome3?profile=${encodeURICom
 
 Tol = await getBuffer(`https://hardianto.xyz/api/goodbye3?profile=${encodeURIComponent(ppuser)}&name=${encodeURIComponent(nama)}&bg=https://telegra.ph/file/d460e086f9f9bf6b04e17.jpg&namegb=${encodeURIComponent(metadata.subject)}&member=${encodeURIComponent(memb)}`)
                 if (anu.action == 'add') {
-                    XeonBotInc.sendMessage(anu.id, { image: Kon, contextInfo: { mentionedJid: [num] }, caption: `Welcome To ${metadata.subject} @${num.split("@")[0]}
+                    XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
 
 Description: ${metadata.desc}
 
@@ -147,7 +212,7 @@ I'm not sure if it was a goodbye charm, but it was fun while it lasted 😌✨` 
 	for (let i of kon) {
 	    list.push({
 	    	displayName: await XeonBotInc.getName(i + '@s.whatsapp.net'),
-	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await XeonBotInc.getName(i + '@s.whatsapp.net')}\nFN:${await XeonBotInc.getName(i + '@s.whatsapp.net')}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Click To Chat\nitem2.EMAIL;type=INTERNET:GitHub: DGXeon\nitem2.X-ABLabel:Follow Me On Github\nitem3.URL:YouTube: Xeon\nitem3.X-ABLabel:Youtube\nitem4.ADR:;;India, Mizoram;;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
+	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await XeonBotInc.getName(i + '@s.whatsapp.net')}\nFN:${await XeonBotInc.getName(i + '@s.whatsapp.net')}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Click To Chat\nitem2.EMAIL;type=INTERNET:fleyvinsoft@gmail.com\nitem2.X-ABLabel: Official Email Fleyvin Group\nitem3.URL:YouTube: Fleyvin\nitem3.X-ABLabel:Youtube\nitem4.ADR:;; Indonesia, JawaTimur;;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
 	    })
 	}
 	XeonBotInc.sendMessage(jid, { contacts: { displayName: `${list.length} Contact`, contacts: list }, ...opts }, { quoted })
