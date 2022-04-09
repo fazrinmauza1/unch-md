@@ -477,7 +477,7 @@ click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
             let reason = user.afkReason || ''
         }
         switch(command) {
-	    case 'peroses': case 'p': {
+	    case 'p': {
 		            if (!isCreator) throw `Emang lu siapa?`
                 let user = global.db.users[m.sender]
                 user.afkTime = + new Date
@@ -486,7 +486,7 @@ click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
             tex = m.quoted ? m.quoted.text ? m.quoted.text : q ? q : m.text : q ? q : m.text
             reply(tex.replace(/[aiueo]/g, ter).replace(/[AIUEO]/g, ter.toUpperCase()))
             }
-            break	
+            break
                         case 'done': case 'd': {
              if (!isCreator) throw mess.owner
               let user = global.db.users[m.sender]
