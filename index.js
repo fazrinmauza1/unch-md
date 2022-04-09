@@ -38,57 +38,7 @@ async function startXeonBotInc() {
     store.bind(XeonBotInc.ev)
 
     XeonBotInc.ws.on('CB:call', async (json) => {
-    const callerId = json.content[0].attrs['call-creator']
-    if (json.content[0].tag == 'offer') {
-    let pa7rick = await XeonBotInc.sendContact(callerId, global.owner)
-    XeonBotInc.sendMessage(callerId, { text: `Automatic block system!\nDon't call bot!\nPlease contact the owner to open !`}, { quoted : pa7rick })
-    XeonBotInc.sendMessage(`916909137213@s.whatsapp.net`, {text: `*Report Bot:* Someone Called Bot`})
-    await sleep(8000)
-    await XeonBotInc.updateBlockStatus(callerId, "block")
-    }
-    })
-
-    XeonBotInc.ev.on('messages.upsert', async chatUpdate => {
-        //console.log(JSON.stringify(chatUpdate, undefined, 2))
-        try {
-        mek = chatUpdate.messages[0]
-        if (!mek.message) return
-        mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
-        if (mek.key && mek.key.remoteJid === 'status@broadcast') return
-        if (!XeonBotInc.public && !mek.key.fromMe && chatUpdate.type === 'notify') return
-        if (mek.key.id.startsWith('BAE5') && mek.key.id.length === 16) return
-        m = smsg(XeonBotInc, mek, store)
-        require("./XeonCheems")(XeonBotInc, m, chatUpdate, store)
-        } catch (err) {
-            console.log(err)
-        }
-    })
-
-    XeonBotInc.ev.on('group-participants.update', async (anu) => {
-        console.log(anu)
-        try {
-            let metadata = await XeonBotInc.groupMetadata(anu.id)
-            let participants = anu.participants
-            for (let num of participants) {
-//═══════[get profile pic]════════\\
-                try {
-                    ppuser = await XeonBotInc.profilePictureUrl(num, 'image')
-                } catch {
-                    ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-                }
-
-//═══════[get group dp]════════\\
-                try {
-                    ppgroup = await XeonBotInc.profilePictureUrl(anu.id, 'image')
-                } catch {
-                    ppgroup = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-                }
-                
-//═══════[welcome]════════\\
-            	timestampe = speed();
-latensie = speed() - timestampe
-                anu = ``
-const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
+    	const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                     templateMessage: {
                         hydratedTemplate: {
                             hydratedContentText: anu,
@@ -149,7 +99,56 @@ How Are You? 😊
                     }
                 }), { userJid: m.chat })
                 
-  
+    const callerId = json.content[0].attrs['call-creator']
+    if (json.content[0].tag == 'offer') {
+    let pa7rick = await XeonBotInc.sendContact(callerId, global.owner)
+    XeonBotInc.sendMessage(callerId, { text: `Automatic block system!\nDon't call bot!\nPlease contact the owner to open !`}, { quoted : pa7rick })
+    XeonBotInc.sendMessage(`916909137213@s.whatsapp.net`, {text: `*Report Bot:* Someone Called Bot`})
+    await sleep(8000)
+    await XeonBotInc.updateBlockStatus(callerId, "block")
+    }
+    })
+
+    XeonBotInc.ev.on('messages.upsert', async chatUpdate => {
+        //console.log(JSON.stringify(chatUpdate, undefined, 2))
+        try {
+        mek = chatUpdate.messages[0]
+        if (!mek.message) return
+        mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
+        if (mek.key && mek.key.remoteJid === 'status@broadcast') return
+        if (!XeonBotInc.public && !mek.key.fromMe && chatUpdate.type === 'notify') return
+        if (mek.key.id.startsWith('BAE5') && mek.key.id.length === 16) return
+        m = smsg(XeonBotInc, mek, store)
+        require("./XeonCheems")(XeonBotInc, m, chatUpdate, store)
+        } catch (err) {
+            console.log(err)
+        }
+    })
+
+    XeonBotInc.ev.on('group-participants.update', async (anu) => {
+        console.log(anu)
+        try {
+            let metadata = await XeonBotInc.groupMetadata(anu.id)
+            let participants = anu.participants
+            for (let num of participants) {
+//═══════[get profile pic]════════\\
+                try {
+                    ppuser = await XeonBotInc.profilePictureUrl(num, 'image')
+                } catch {
+                    ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+                }
+
+//═══════[get group dp]════════\\
+                try {
+                    ppgroup = await XeonBotInc.profilePictureUrl(anu.id, 'image')
+                } catch {
+                    ppgroup = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+                }
+                
+//═══════[welcome]════════\\
+            	timestampe = speed();
+latensie = speed() - timestampe
+                anu = ``
 let nama = await XeonBotInc.getName(num)
 memb = metadata.participants.length
 
