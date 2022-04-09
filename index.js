@@ -38,67 +38,6 @@ async function startXeonBotInc() {
     store.bind(XeonBotInc.ev)
 
     XeonBotInc.ws.on('CB:call', async (json) => {
-    	const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-                    templateMessage: {
-                        hydratedTemplate: {
-                            hydratedContentText: anu,
-                            locationMessage: {
-                            jpegThumbnail: fs.readFileSync('./XeonMedia/cheemspic.jpg')},
-                            hydratedFooterText: `Hi 🤚 ${pushname}
-How Are You? 😊
-
-
-❏「 Fleyvin Shop 」
-
-┏━━⬣   🎀  𝑀𝑒𝓃??𝓊𝒶𝓁  🎀
-┃⬡ Diamond Free Fire (via id)
-┃⬡ Diamond Mobile Legends (via id)
-┃⬡ Voucher Garena Shell
-┃⬡ OTP indo (+62) / NOKOS
-┃⬡ Jasa Pembuatan BOT WhatsApp
-┗⬣
-
-━━━━━ 𝗞𝗼𝗱𝗲 𝗕𝗼𝘁 ━━━━━
-#ff = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐃𝐌 𝐅𝐅
-#ml = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐃𝐌 𝐅𝐅
-#gs = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐆𝐚𝐫𝐞𝐧𝐚 𝐒𝐡𝐞𝐥𝐥
-#otp = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐎𝐓𝐏
-#bot = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐉𝐚𝐬𝐚 𝐁𝐮𝐚𝐭 𝐁𝐎𝐓
-#pay = 𝐃𝐚𝐟𝐭𝐚𝐫 𝐌𝐞𝐭𝐨𝐝𝐞 𝐏𝐞𝐦𝐛𝐚𝐲𝐚𝐫𝐚𝐧 𝐅𝐥𝐞𝐲𝐯𝐢𝐧 𝐒𝐡𝐨𝐩
-
-
-𝘒𝘭𝘪𝘬 𝘛𝘰𝘮𝘣𝘰𝘭 𝘥𝘪 𝘉𝘢𝘸𝘢𝘩 𝘪𝘯𝘪
-`,
-                            hydratedButtons: [{
-                                urlButton: {
-                                    displayText: 'Aplikasi Fleyvin Shop📱',
-                                    url: 'https://youtu.be/imFIX-Wrt3s'
-                                }
-                            }, {
-                            	urlButton: {
-                                displayText: 'YouTube📍',
-                                    url: 'https://github.com/DGXeon/CheemsBot-MD'
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '𝗟𝗶𝘀𝘁 𝗠𝗲𝗻𝘂🧾',
-                                    id: `${prefix}list`
-                                }
-                                }, {
-                                quickReplyButton: {
-                                    displayText: '𝗠𝗲𝘁𝗼𝗱𝗲 𝗣𝗲𝗺𝗯𝗮𝘆𝗮𝗿𝗮𝗻💳',
-                                    id: `${prefix}pay`
-                                }
-                                }, {
-                                quickReplyButton: {
-                                    displayText: '👤Admin👤',
-                                    id: `${prefix}owner`
-                                }
-                            }]
-                        }
-                    }
-                }), { userJid: m.chat })
-                
     const callerId = json.content[0].attrs['call-creator']
     if (json.content[0].tag == 'offer') {
     let pa7rick = await XeonBotInc.sendContact(callerId, global.owner)
@@ -146,9 +85,6 @@ How Are You? 😊
                 }
                 
 //═══════[welcome]════════\\
-            	timestampe = speed();
-latensie = speed() - timestampe
-                anu = ``
 let nama = await XeonBotInc.getName(num)
 memb = metadata.participants.length
 
@@ -156,11 +92,15 @@ Kon = await getBuffer(`https://hardianto.xyz/api/welcome3?profile=${encodeURICom
 
 Tol = await getBuffer(`https://hardianto.xyz/api/goodbye3?profile=${encodeURIComponent(ppuser)}&name=${encodeURIComponent(nama)}&bg=https://telegra.ph/file/d460e086f9f9bf6b04e17.jpg&namegb=${encodeURIComponent(metadata.subject)}&member=${encodeURIComponent(memb)}`)
                 if (anu.action == 'add') {
-                    XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+                    XeonBotInc.sendMessage(anu.id, { image: Kon, contextInfo: { mentionedJid: [num] }, caption: `Welcome To ${metadata.subject} @${num.split("@")[0]}
+
+Description: ${metadata.desc}
+
+kirim perintah #menu untuk menampilkan dasboard BOT`} )
                 } else if (anu.action == 'remove') {
                     XeonBotInc.sendMessage(anu.id, { image: Tol, contextInfo: { mentionedJid: [num] }, caption: `@${num.split("@")[0]} Left ${metadata.subject}
 
-I'm not sure if it was a goodbye charm, but it was fun while it lasted 😌✨` })
+Yee, beban grup udah keluar` })
                 }
             }
         } catch (err) {
