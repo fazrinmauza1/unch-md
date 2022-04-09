@@ -103,6 +103,9 @@ return dDisplay + hDisplay + mDisplay + sDisplay;
 	const reply = (teks) => {
             XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` LAGI DI PEROSES`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/HYj9wu5Jrv6CROxyeQbHoS"}}}, { quoted: m})
         }
+        const rdone = (teks) => {
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` UDAH DI PEROSES`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/HYj9wu5Jrv6CROxyeQbHoS"}}}, { quoted: m})
+        }
         const rperoses= (teks) => {
             XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` LAGI DI PEROSES`,"body": ` Pesanan Sedang di Peroses Admin`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://youtu.be/imFIX-Wrt3s"}}}, { quoted: m})
         }
@@ -479,14 +482,14 @@ click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
 `.trim())
         }
         switch(command) {
-	    case 'jajal': {
+	    case 'p': case 'otw': case 'peroses': {
 		            if (!isCreator) throw `Emang lu siapa?`
                 let user = global.db.users[m.sender]
                 user.afkTime = + new Date
                 user.afkReason = text
             ter = command[1].toLowerCase()
             tex = m.quoted ? m.quoted.text ? m.quoted.text : q ? q : m.text : q ? q : m.text
-            reply(tex.replace(/[aiueo]/g, ter).replace(/[AIUEO]/g, ter.toUpperCase()))
+            rperoses(tex.replace(/[aiueo]/g, ter).replace(/[AIUEO]/g, ter.toUpperCase()))
             }
             break	
             case 'dff' : {
@@ -634,19 +637,10 @@ Please @${m.mentionedJid[0].split`@`[0]} to type accept/reject`
                 }
             }
             break
-                        case 'peroses': case 'p': case 'otw': case 'per': case 'perosess':
-                if (!isCreator) throw mess.owner
-               let user = global.db.users[m.sender]
-                user.afkTime = + new Date
-                user.afkReason = text
-            ter = command[1].toLowerCase()
-            tex = m.quoted ? m.quoted.text ? m.quoted.text : q ? q : m.text : q ? q : m.text
-            rperoses(tex.replace(/[aiueo]/g, ter).replace(/[AIUEO]/g, ter.toUpperCase()))
-            break
             case 'done': case 'd': {
              if (!isCreator) throw mess.owner
               let user = global.db.users[m.sender]
-            reply(`┏┉⌣ ┈̥-̶̯͡..̷̴✽̶┄┈┈┈┈┈┈┈┉┓
+            rdone(`┏┉⌣ ┈̥-̶̯͡..̷̴✽̶┄┈┈┈┈┈┈┈┉┓
 ┆ *TRANSAKSI SUKSES*
 └┈┈┈┈┈┈┈┈⌣ ┈̥-̶̯͡..̷̴✽̶⌣ ✽̶
 
