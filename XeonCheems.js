@@ -103,6 +103,15 @@ return dDisplay + hDisplay + mDisplay + sDisplay;
 	const reply = (teks) => {
             XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` LAGI DI PEROSES`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/HYj9wu5Jrv6CROxyeQbHoS"}}}, { quoted: m})
         }
+                const rabout= (teks) => {
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Fleyvin Group`,"body": ` Temukan Kami di Media Sosial`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://youtu.be/imFIX-Wrt3s"}}}, { quoted: m})
+        }
+                const rpay = (teks) => {
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": `Metode Pembayaran`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/HYj9wu5Jrv6CROxyeQbHoS"}}}, { quoted: m})
+        }
+        const rff = (teks) => {
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Free Fire`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/HYj9wu5Jrv6CROxyeQbHoS"}}}, { quoted: m})
+        }
         const rdone = (teks) => {
             XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` UDAH DI PEROSES`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/HYj9wu5Jrv6CROxyeQbHoS"}}}, { quoted: m})
         }
@@ -482,14 +491,14 @@ click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
 `.trim())
         }
         switch(command) {
-	    case 'p': case 'otw': case 'peroses': {
-		            if (!isCreator) throw `Emang lu siapa?`
+	    case 'pr': case 'otw': case 'peroses': {
+		             if (!isCreator) throw mess.owner
                 let user = global.db.users[m.sender]
                 user.afkTime = + new Date
                 user.afkReason = text
             ter = command[1].toLowerCase()
             tex = m.quoted ? m.quoted.text ? m.quoted.text : q ? q : m.text : q ? q : m.text
-            rperoses(tex.replace(/[aiueo]/g, ter).replace(/[AIUEO]/g, ter.toUpperCase()))
+            rperoses(tex.replace(/[]/g, ter).replace(/[]/g, ter.toUpperCase()))
             }
             break	
             case 'dff' : {
@@ -799,7 +808,7 @@ Ciee Whats Going On💖👀`
                 await XeonBotInc.groupAcceptInvite(result).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
             }
             break
-            case 'leave': {
+            case 'keluar': case 'leave': {
                 if (!isCreator) throw mess.owner
                 await XeonBotInc.groupLeave(m.chat).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
             }
@@ -913,7 +922,7 @@ let teks = `══✪〘 *👥 Tag All* 〙✪══
                 XeonBotInc.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: m })
                 }
                 break
-                case 'hidetag': {
+                case 'hidetag': case 'h': {
             if (!m.isGroup) throw mess.group
             if (!isAdmins) throw mess.admin
             XeonBotInc.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: m })
@@ -1094,24 +1103,7 @@ break
             reply('Successfully Deleted Vote Session In This Group')
 	    }
             break
-               case 'group': case 'grup': {
-                if (!m.isGroup) throw mess.group
-                if (!isBotAdmins) throw mess.botAdmin
-                if (!isAdmins) throw mess.admin
-                if (args[0] === 'close'){
-                    await XeonBotInc.groupSettingUpdate(m.chat, 'announcement').then((res) => reply(`Successful Closing The Group`)).catch((err) => reply(jsonformat(err)))
-                } else if (args[0] === 'open'){
-                    await XeonBotInc.groupSettingUpdate(m.chat, 'not_announcement').then((res) => reply(`Successful Opening The Group`)).catch((err) => reply(jsonformat(err)))
-                } else {
-                let buttons = [
-                        { buttonId: 'group open', buttonText: { displayText: '⭕Open⭕' }, type: 1 },
-                        { buttonId: 'group close', buttonText: { displayText: '🚫Close🚫' }, type: 1 }
-                    ]
-                    await XeonBotInc.sendButtonText(m.chat, buttons, `Group Mode`, XeonBotInc.user.name, m)
-
-             }
-            }
-            break
+              
             case 'editinfo': {
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
@@ -1227,18 +1219,18 @@ case 'antilink':
                     await sleep(1500)
                     let btn = [{
                                 urlButton: {
+                                    displayText: 'Aplikasi Fleyvin Shop📍',
+                                    url: 'https://github.com/DGXeon/CheemsBot-MD'
+                                }
+                            }, {
+                                urlButton: {
                                     displayText: 'YouTube📍',
                                     url: 'https://github.com/DGXeon/CheemsBot-MD'
                                 }
                             }, {
-                                callButton: {
-                                    displayText: 'Owner Number👤',
-                                    phoneNumber: '+91 690-9137-213'
-                                }
-                            }, {
                                 quickReplyButton: {
-                                    displayText: '📶Bot Status📶',
-                                    id: 'ping'
+                                    displayText: 'Listmenu',
+                                    id: 'list'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -1247,12 +1239,12 @@ case 'antilink':
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Script',
-                                    id: 'sc'
+                                    displayText: 'Ikuti Kami',
+                                    id: 'about'
                                 }
                             }]
                       fatihgans = fs.readFileSync('./XeonMedia/cheemspic.jpg')
-                      let txt = `「 Cheems Bot Broadcast 」\n\n${text}`
+                      let txt = `「 Fleyvin Shop Broadcast 」\n\n${text}`
                       XeonBotInc.send5ButImg(i, txt, XeonBotInc.user.name, fatihgans, btn)
                     }
                 reply(`Successful Sending Broadcast To ${anu.length} Group(s)`)
@@ -1267,7 +1259,7 @@ case 'antilink':
 		    await sleep(1500)
 		    let btn = [{
                                 urlButton: {
-                                    displayText: 'Script🔖',
+                                    displayText: 'Aplikasi Fleyvin Shop',
                                     url: 'https://github.com/DGXeon/CheemsBot-MD'
                                 }
                             }, {
@@ -1277,7 +1269,7 @@ case 'antilink':
                                 }
                             }]
                       fatihgans = fs.readFileSync('./XeonMedia/cheemspic.jpg')
-                      let txt = `「 Cheems Bot Broadcast 」\n\n${text}`
+                      let txt = `「 Fleyvin Shop Broadcast 」\n\n${text}`
                       XeonBotInc.send5ButImg(yoi, txt, `Broadcast By ${global.pengguna}`, fatihgans, btn)
 		}
 		reply('Broadcast Success')
@@ -2136,6 +2128,19 @@ ${Object.entries(global.db.sticker).map(([key, value], index) => `${index + 1}. 
 		replay(m.quoted)
             }
   break
+            case 'addmsg': {
+                if (!m.quoted) throw 'Reply Message You Want To Save In Database'
+                if (!text) throw `Example : ${prefix + command} message name`
+                let msgs = global.db.database
+                if (text.toLowerCase() in msgs) throw `'${text}' telah terdaftar di list pesan`
+                msgs[text.toLowerCase()] = quoted.fakeObj
+reply(`Successfully added message in message list as '${text}'
+    
+Access with ${prefix}getmsg ${text}
+
+View list of message with ${prefix}listmsg`)
+            }
+            break
             case 'getmsg': {
                 if (!text) throw `Example : ${prefix + command} msg name\n\nView message list with ${prefix}listmsg`
                 let msgs = global.db.database
@@ -2144,7 +2149,13 @@ ${Object.entries(global.db.sticker).map(([key, value], index) => `${index + 1}. 
             }
             break
             case 'listmsg': {
-	        reply(`Successfully added message in message list as '${text}' `)
+                let msgs = JSON.parse(fs.readFileSync('./src/database.json'))
+	        let seplit = Object.entries(global.db.database).map(([nama, isi]) => { return { nama, ...isi } })
+		let teks = '「 LIST DATABASE 」\n\n'
+		for (let i of seplit) {
+		    teks += `⬡ *Name :* ${i.nama}\n⬡ *Type :* ${getContentType(i.message).replace(/Message/i, '')}\n────────────────────────\n\n`
+	        }
+	        reply(teks)
 	    }
 	    break
             case 'delmsg': case 'deletemsg': {
@@ -2297,7 +2308,7 @@ case 'sendkontak': case 'sendcontact': {
                 reply('Successfully Changed To Public Usage')
             }
             break
-            case 'self': {
+            case 'selhhf': {
                 if (!isCreator) throw mess.owner
                 XeonBotInc.public = false
                 reply('Successfully Changed To Self Usage')
@@ -2350,10 +2361,8 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 reply(respon)
             }
             break
-            case 'owner': case 'creator': {
+            case 'owner': case 'admin': case 'creator': {
             XeonBotInc.sendContact(m.chat, global.pemilik, m)
-           const devsound = fs.readFileSync('./XeonMedia/botdev.mp3') //u can change the music in XeonMedia folder
-           XeonBotInc.sendMessage(m.chat, { audio: devsound, mimetype: 'audio/mp4', ptt: true, quoted: m })
             }
             break
                     case 'bug': case 'report': {
@@ -2406,7 +2415,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 }
 break
 
-            case 'list': case 'menu': case 'help': case '?': {
+            case 'gas': case 'menu': case 'help': case '?': {
             	timestampe = speed();
 latensie = speed() - timestampe
                 anu = ``
@@ -2420,42 +2429,50 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 How Are You? 😊
 
 
-❏「 INFO BOT 」
+❏「 Fleyvin Shop 」
 
-𝗦𝗽𝗲𝗲𝗱 : ${latensie.toFixed(4)} miliseconds
-𝗥𝘂𝗻𝘁𝗶𝗺𝗲 : ${runtime(process.uptime())}
-𝗕𝗼𝘁 𝗡𝗮𝗺𝗲 : ${global.botnma}
-𝗢𝘄𝗻𝗲𝗿 𝗡𝗮𝗺𝗲 : ${global.ownernma}
-𝗢𝘄𝗻𝗲𝗿 𝗡𝘂𝗺𝗯𝗲𝗿 : ${global.owner}
-𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : ${os.hostname()}
-𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : ${os.platform()}
+┏━━⬣   🎀  𝑀𝑒𝓃𝒿𝓊𝒶𝓁  🎀
+┃⬡ Diamond Free Fire (via id)
+┃⬡ Diamond Mobile Legends (via id)
+┃⬡ Voucher Garena Shell
+┃⬡ OTP indo (+62) / NOKOS
+┃⬡ Jasa Pembuatan BOT WhatsApp
+┗⬣
+
+━━━━━ 𝗞𝗼𝗱𝗲 𝗕𝗼𝘁 ━━━━━
+#ff = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐃𝐌 𝐅𝐅
+#ml = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐃𝐌 𝐅𝐅
+#gs = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐆𝐚𝐫𝐞𝐧𝐚 𝐒𝐡𝐞𝐥𝐥
+#otp = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐎𝐓𝐏
+#bot = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐉𝐚𝐬𝐚 𝐁𝐮𝐚𝐭 𝐁𝐎𝐓
+#pay = 𝐃𝐚𝐟𝐭𝐚𝐫 𝐌𝐞𝐭𝐨𝐝𝐞 𝐏𝐞𝐦𝐛𝐚𝐲𝐚𝐫𝐚𝐧 𝐅𝐥𝐞𝐲𝐯𝐢𝐧 𝐒𝐡𝐨𝐩
 
 
-Please Select Button Below
+𝘒𝘭𝘪𝘬 𝘛𝘰𝘮𝘣𝘰𝘭 𝘥𝘪 𝘉𝘢𝘸𝘢𝘩 𝘪𝘯𝘪
 `,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: 'YouTube📍',
+                                    displayText: 'Aplikasi Fleyvin Shop📱',
                                     url: 'https://youtu.be/imFIX-Wrt3s'
                                 }
                             }, {
                             	urlButton: {
-                                displayText: 'Script🔖',
+                                displayText: 'YouTube📍',
                                     url: 'https://github.com/DGXeon/CheemsBot-MD'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: '🍇All Menu🍇',
-                                    id: `${prefix}allmenu`
+                                    displayText: '𝗟𝗶𝘀𝘁 𝗠𝗲𝗻𝘂🧾',
+                                    id: `${prefix}list`
                                 }
                                 }, {
                                 quickReplyButton: {
-                                    displayText: '🍒List Menu🍒',
-                                    id: `${prefix}command`
+                                    displayText: '𝗠𝗲𝘁𝗼𝗱𝗲 𝗣𝗲𝗺𝗯𝗮𝘆𝗮𝗿𝗮𝗻💳',
+                                    id: `${prefix}pay`
                                 }
                                 }, {
                                 quickReplyButton: {
-                                    displayText: '👤Owner👤',
+                                    displayText: '👤Admin👤',
                                     id: `${prefix}owner`
                                 }
                             }]
@@ -2465,111 +2482,92 @@ Please Select Button Below
                 XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
 break
-case 'command':{
+case 'menuadmin': case 'adminmenu': case 'vip': case 'ownermenu': case 'menuowner':{
 let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 listMessage :{
-                    title: `Hi ${pushname}`,
-                    description: `Please Choose The Menu\n\n`,
+                    title: `*OWNER BOT MENU*`,
+                    description: `
+「 *Menu Owner BOT* 」
+  ➙ ${prefix}chat [option]
+  ➙ ${prefix}join [link]
+  ➙ ${prefix}setbotpp
+  ➙ ${prefix}block @user
+  ➙ ${prefix}unblock @user
+  ➙ ${prefix}bcgroup
+  ➙ ${prefix}bcall
+
+  ➙ ${prefix}setcmd
+  ➙ ${prefix}listcmd
+  ➙ ${prefix}delcmd
+  ➙ ${prefix}lockcmd
+  ➙ ${prefix}addmsg
+  ➙ ${prefix}listmsg
+  ➙ ${prefix}getmsg
+  ➙ ${prefix}delmsg
+
+「 *Menu Owner di Grup* 」
+  ➙ ${prefix}add nomor
+  ➙ ${prefix}kick @tag
+  ➙ ${prefix}hidetag teks
+  ➙ ${prefix}tagall teks
+  ➙ ${prefix}setgrouppp
+  ➙ ${prefix}setname [text]
+  ➙ ${prefix}editinfo [option]
+
+  ➙ ${prefix}groupp open/close
+  ➙ ${prefix}antilink on/off
+  ➙ ${prefix}antiwame on/off
+  ➙ ${prefix}mute on/off
+  ➙ ${prefix}keluar
+  ➙ ${prefix}grouplink
+  ➙ ${prefix}grupinfo
+
+ Pilih Menu di Bawah ini\n\n`,
                     buttonText: "Menu",
-                    footerText: "_Cheems Bot-MD_",
+                    footerText: "_Fleyvin Shop_",
                     listType: "SINGLE_SELECT",
                     sections: [{
-								"title": "Group Features",
+								"title": "Group Menu",
 								"rows": [
 									{
-										"title": "Group Menu",
-										"description": "Displays The List Of Group Features",
-										"rowId": `${prefix}grupmenu`
-									}
-								]
-							},
-							{
-								"title": "Bot Features",
-								"rows": [
-									{
-										"title": "All Menu",
-										"description": "Displays The List Of All The Features!",
-										"rowId": `${prefix}allmenu`
+										"title": "OPEN GROUP PUBLIK",
+										"description": "Membuka group chat",
+										"rowId": `${prefix}groupp open`
 									},
 									{
-										"title": "Download Menu",
-										"description": "Displays The List Of Download Features",
-										"rowId": `${prefix}downloadmenu`
+										"title": "CLOSE GROUP",
+										"description": "Menutup Group Chat",
+										"rowId": `${prefix}groupp close`
 									},
 									{
-										"title": "Search Menu",
-										"description": "Displays The List Of Searching Features",
-										"rowId": `${prefix}searchmenu`
+										"title": "Anti Link WA ON",
+										"description": "Sistem Antilink WA ON",
+										"rowId": `${prefix}antilink on`
 									},
 										{
-											"title": "Image Menu",
-										"description": "Displays The List Of Image Features",
-										"rowId": `${prefix}imagemenu`
-										},
+											"title": "Anti Link WA OFF",
+										"description": "Sistem Antilink WA OFF",
+										"rowId": `${prefix}antilink off`
+									},
 										{
-											"title": "Fun Menu",
-										"description": "Displays The List Of Fun Features",
-										"rowId": `${prefix}funmenu`
-										},
+											"title": "Anti Link WA.ME",
+										"description": "Sistem Antilink WA.ME ON",
+										"rowId": `${prefix}antiwame on`
+									},
 										{
-											"title": "Convert Menu",
-										"description": "Displays The List Of Convert Features",
-										"rowId": `${prefix}convertmenu`
-										},
+											"title": "Anti Link WA.ME OFF",
+										"description": "Sistem Antilink WA.ME OFF",
+										"rowId": `${prefix}antiwame off`
+									},
 										{
-										"title": "Miscellaneous Menu",
-										"description": "Displays The List Of Miscellaneous Features",
-										"rowId": `${prefix}nocategorymenu`
-										},
+											"title": "Mute Group ON",
+										"description": "Sistem Mute Group WA ON",
+										"rowId": `${prefix}mute on`
+									},
 										{
-											"title": "Database Menu",
-										"description": "Displays The List Of Database Features",
-										"rowId": `${prefix}databasemenu`
-										},
-										{
-											"title": "Voice Changer Menu",
-										"description": "Displays The List Of Voice Changing Features",
-										"rowId": `${prefix}voicemenu`
-										}
-								]
-							},
-							{
-								"title": "Chat with fellow users",
-								"rows": [
-									{
-										"title": "Anonymous Chat Menu",
-										"description": "Displays The List Of Anonymous Chat Features",
-										"rowId": `${prefix}anonymouschatmenu`
-									}
-								]
-							},
-							{
-								"title": "Group System",
-								"rows": [
-									{
-										"title": "System Menu",
-										"description": "Displays The List Of Group System Features",
-										"rowId": `${prefix}sistemmenu`
-									}
-								]
-							},
-							{
-								"title": "Owner",
-								"rows": [
-									{
-										"title": "Owner Menu",
-										"description": "Displays The List Of Owner Features",
-										"rowId": `${prefix}ownermenu`
-									}
-								]
-							},
-							{
-								"title": "Credit",
-								"rows": [
-									{
-										"title": "Thanks To",
-										"description": "Displays The List Of Credit Of The Bot !!",
-										"rowId": `${prefix}tqtt`
+											"title": "Mute Group OFF",
+										"description": "Sistem Mute Group WA OFF",
+										"rowId": `${prefix}mute off`
 									}
 								]
 							}
@@ -2580,7 +2578,207 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
             XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-case 'grupmenu': {
+case 'group': case 'groupset': case 'groupsetting': case 'grup': case 'grub':{
+let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
+                listMessage :{
+                    title: `*OWNER BOT MENU*`,
+                    description: `
+ Pilih Menu di Bawah ini\n`,
+                    buttonText: "Menu",
+                    footerText: "_Fleyvin Shop_",
+                    listType: "SINGLE_SELECT",
+                    sections: [{
+								"title": "Group Menu",
+								"rows": [
+									{
+										"title": "OPEN GROUP PUBLIK",
+										"description": "Membuka group chat",
+										"rowId": `${prefix}groupp open`
+									},
+									{
+										"title": "CLOSE GROUP",
+										"description": "Menutup Group Chat",
+										"rowId": `${prefix}groupp close`
+									},
+									{
+										"title": "Anti Link WA ON",
+										"description": "Sistem Antilink WA ON",
+										"rowId": `${prefix}antilink on`
+									},
+										{
+											"title": "Anti Link WA OFF",
+										"description": "Sistem Antilink WA OFF",
+										"rowId": `${prefix}antilink off`
+									},
+										{
+											"title": "Anti Link WA.ME",
+										"description": "Sistem Antilink WA.ME ON",
+										"rowId": `${prefix}antiwame on`
+									},
+										{
+											"title": "Anti Link WA.ME OFF",
+										"description": "Sistem Antilink WA.ME OFF",
+										"rowId": `${prefix}antiwame off`
+									},
+										{
+											"title": "Mute Group ON",
+										"description": "Sistem Mute Group WA ON",
+										"rowId": `${prefix}mute on`
+									},
+										{
+											"title": "Mute Group OFF",
+										"description": "Sistem Mute Group WA OFF",
+										"rowId": `${prefix}mute off`
+									}
+								]
+							}
+						],
+          listType: 1
+                }
+            }), {})
+            XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+            }
+            break
+case 'command': case 'list': case 'listmenu':{
+let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
+                listMessage :{
+                    title: `Hi ${pushname}`,
+                    description: `Silahkan Pilih Menu di Bawah ini\n\n`,
+                    buttonText: "Menu",
+                    footerText: "_Fleyvin Shop_",
+                    listType: "SINGLE_SELECT",
+                    sections: [{
+								"title": "List Produk",
+								"rows": [
+									{
+										"title": "Free Fire",
+										"description": "List Harga Diamond FF",
+										"rowId": `${prefix}ff`
+									},
+									{
+										"title": "Mobile Legends",
+										"description": "List Harga Diamond MLBB",
+										"rowId": `${prefix}ml`
+									},
+									{
+										"title": "Garena Shell",
+										"description": "List Harga Garena Shell",
+										"rowId": `${prefix}gs`
+									},
+										{
+											"title": "OTP / NOKOS",
+										"description": "List Harga OTP indo / NOKOS",
+										"rowId": `${prefix}otp`
+										},
+										{
+											"title": "BOT WhatsApp",
+										"description": "Jasa Pembuatan BOT WhatsApp",
+										"rowId": `${prefix}bot`
+										}
+								]
+							},
+							{
+								"title": "Metode Pembayaran",
+								"rows": [
+									{
+										"title": "Metode Pembayaran",
+										"description": "List Metode Pembayaran Fleyvin Shop",
+										"rowId": `${prefix}pay`
+									}
+								]
+							},
+							{
+								"title": "Sosial Media Fleyvin",
+								"rows": [
+									{
+										"title": "Temukan Kami",
+										"description": "Menampilkan Sosial Media Fleyvin Group",
+										"rowId": `${prefix}about`
+									}
+								]
+							}
+						],
+          listType: 1
+                }
+            }), {})
+            XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
+            }
+            break
+case 'fleyvinshop': case 'about': case 'fleyvin':
+rabout(`┏━━⬣
+┃⬡ Instagram :
+┃    Instagram.com/fleyvin_soft
+┃⬡ YouTube :
+┃    youtube.com/c/Fleyvin
+┃⬡ PlayStore :
+┃    play.google.com/dev.
+┃⬡ Group WhatsApp (Fleyvin Shop) :
+┃    whatsapp.com/
+┃⬡ Nomor WhatsApp (Fleyvin Group) :
+┃    wa.me/6283110011351
+┗━━⬣
+`)
+break
+case 'pay': case 'payment': case 'bayar': case 'pembayaran': case 'metodepembayaran':
+rpay(`┏━━⬣
+┃⬡ GOPAY : SCAN QRIS
+┃    Minta ke Admin
+
+┃⬡ DANA : 089630883352
+┃    A/n Alfi Reyhan
+
+┃⬡ OVO : 089630883352
+┃    A/n Alfi Reyhan
+
+┃⬡ ShopeePay : 083110011351
+┃    A/n Ngairah
+
+┃⬡ SeaBank : 089630883352
+┃    A/n Supadmi
+
+┃⬡ BSI : 089630883352
+┃    A/n Ngairah
+
+┃⬡ BRI : 089630883352
+┃    A/n Alfi Reyhan
+
+┃⬡ QRIS all payment
+┃    *Minta ke Admin sebut nominal pembayaran*
+┗━━⬣
+`)
+break
+case 'ff': case 'freefire': case 'epep':
+rff(`Via ID || 1-5 Menit
+Status : READY
+
+70       💎 : Rp 10.000
+100     💎 : Rp 15.000
+120.    💎 : Rp 18.000
+140.    💎 : Rp 20.000
+150.    💎 : Rp 22.000
+200.    💎 : Rp 28.000
+210     💎 : Rp 30.000
+280     💎 : Rp 39.000
+355     💎 : Rp 48.000
+425     💎 : Rp 58.000
+500     💎 : Rp 67.000
+720     💎 : Rp 95.000
+860     💎 : Rp 113.000
+1000   💎 : Rp 130.000
+1075   💎 : Rp 140.000
+1440   💎 : Rp 185.000
+2000   💎 : Rp 255.000
+2500   💎 : Rp 320.000
+
+MM :  30.000
+MB : 140.000
+͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏
+*FORMAT ORDER*
+ID :
+NICK :
+ORDER DM :`)
+break
+case 'grupmednu': {
 	            anu = `
   *Group Menu*
   
@@ -2699,6 +2897,24 @@ case 'downloadmenu': {
                 XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
 break
+               case 'groupp': case 'grhhup': {
+                if (!m.isGroup) throw mess.group
+                if (!isBotAdmins) throw mess.botAdmin
+                if (!isAdmins) throw mess.admin
+                if (args[0] === 'close'){
+                    await XeonBotInc.groupSettingUpdate(m.chat, 'announcement').then((res) => reply(`Successful Closing The Group`)).catch((err) => reply(jsonformat(err)))
+                } else if (args[0] === 'open'){
+                    await XeonBotInc.groupSettingUpdate(m.chat, 'not_announcement').then((res) => reply(`Successful Opening The Group`)).catch((err) => reply(jsonformat(err)))
+                } else {
+                let buttons = [
+                        { buttonId: 'group open', buttonText: { displayText: '⭕Open⭕' }, type: 1 },
+                        { buttonId: 'group close', buttonText: { displayText: '🚫Close🚫' }, type: 1 }
+                    ]
+                    await XeonBotInc.sendButtonText(m.chat, buttons, `Group Mode`, XeonBotInc.user.name, m)
+
+             }
+            }
+            break
 case 'randommenu': {
 	anu = `
 	*Random Menu*
@@ -3073,7 +3289,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
 break
-  case 'ownermenu': {
+  case 'ownermehsnu': {
   	anu = `
   *Owner Menu*
   
