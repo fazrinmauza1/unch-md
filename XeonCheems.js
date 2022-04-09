@@ -479,9 +479,6 @@ click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
         switch(command) {
 	    case 'p': {
 		            if (!isCreator) throw `Emang lu siapa?`
-                let user = global.db.users[m.sender]
-                user.afkTime = + new Date
-                user.afkReason = text
             ter = command[1].toLowerCase()
             tex = m.quoted ? m.quoted.text ? m.quoted.text : q ? q : m.text : q ? q : m.text
             reply(tex.replace(/[aiueo]/g, ter).replace(/[AIUEO]/g, ter.toUpperCase()))
