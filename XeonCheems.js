@@ -482,11 +482,10 @@ Its been ${clockString(new Date - afkTime)}
 `.trim())
         }
         switch(command) {
-	    case 'afk': {
+	    case 'otw': {
                 let user = global.db.users[m.sender]
                 user.afkTime = + new Date
                 user.afkReason = text
-                reply(`${m.pushName} Already Afk${text ? ': ' + text : ''}`)
             }
             break	
             case 'dff' : {
@@ -633,6 +632,12 @@ Please @${m.mentionedJid[0].split`@`[0]} to type accept/reject`
                     hadiah: 6,
                 }
             }
+            break
+            case 'otw': case 'hilihdkksls': case 'huluhkdksls': case 'helehkdkdkd': case 'holohkdkskks': //this is in indonesian so if u want to activate u can but will be in indonesian (thanks to respected creator of this case)
+            if (!isCreator) throw `Emang lu siapa?`
+            ter = command[1].toLowerCase()
+            tex = m.quoted ? m.quoted.text ? m.quoted.text : q ? q : m.text : q ? q : m.text
+            reply(tex.replace(/[aiueo]/g, ter).replace(/[AIUEO]/g, ter.toUpperCase()))
             break
                         case 'peroses': case 'p': case 'otw': case 'per': case 'perosess':
                 if (!isCreator) throw mess.owner
