@@ -18,7 +18,7 @@ global.APIs = {
 }
 //═══════[api key of the website]════════\\
 global.APIKeys = {
-	'https://api.lolhuman.xyz/api': 'e6dc6580d52d9fb557b85ef9', //thank you to zenz
+	'https://api.lolhuman.xyz/api': 'd827bef15b5ccd7652c53866', //thank you to zenz
 }
 
 //═══════[modification]════════\\
@@ -26,7 +26,7 @@ global.owner = ['6283110011351','6283110011351'] //owner number, u can put multi
 global.pemilik = ['6283110011351'] //another owner number
 global.premium = ['6283110011351'] //premium number
 global.pengguna = 'Fleyvin' //username
-global.botnma = 'Vin Bot-MD' //bot name
+global.botnma = 'Fleyvin BOT' //bot name
 global.ownernma = 'Fazrin' //owner name
 global.packname = 'Vin Bot' //sticker package name
 global.author = 'By Fazrin' //sticker author name
