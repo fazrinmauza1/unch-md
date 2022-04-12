@@ -1580,9 +1580,7 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                 XeonBotInc.sendMessage(m.chat, { image: { url: random.female }, caption: `Couple Female` }, { quoted: m })
             }
 	    break
-            case 'wallpaper': {
-                anu = await wallpaper(text)
-                result = anu[Math.floor(Math.random() * anu.length)]
+            case 'wallpaper': {       
 		let buttons = [
                     {buttonId: `wallpaper`, buttonText: {displayText: 'Next Image'}, type: 1}
                 ]
