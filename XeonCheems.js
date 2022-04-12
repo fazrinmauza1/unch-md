@@ -101,25 +101,25 @@ return dDisplay + hDisplay + mDisplay + sDisplay;
 	
 //[target]\\
 	const reply = (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Fleyvin Shop`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/HYj9wu5Jrv6CROxyeQbHoS"}}}, { quoted: m})
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Fleyvin Shop`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/EMP3AtdiM61IfX8spLzhWK"}}}, { quoted: m})
         }
                 const rabout= (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Fleyvin Group`,"body": ` Temukan Kami di Media Sosial`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://youtu.be/imFIX-Wrt3s"}}}, { quoted: m})
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Fleyvin Group`,"body": ` Temukan Kami di Media Sosial`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://wa.me/6283110011351"}}}, { quoted: m})
         }
                 const rpay = (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": `Metode Pembayaran`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/HYj9wu5Jrv6CROxyeQbHoS"}}}, { quoted: m})
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Metode Pembayaran`,"body": ` `, "previewType": "PHOTO","thumbnailUrl": ` Klik untuk wa ke Admin`,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://wa.me/6283110011351"}}}, { quoted: m})
         }
         const rff = (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Free Fire`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/HYj9wu5Jrv6CROxyeQbHoS"}}}, { quoted: m})
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Free Fire`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/EMP3AtdiM61IfX8spLzhWK"}}}, { quoted: m})
         }
         const rdone = (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` UDAH DI PEROSES`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/HYj9wu5Jrv6CROxyeQbHoS"}}}, { quoted: m})
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` UDAH DI PEROSES`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/EMP3AtdiM61IfX8spLzhWK"}}}, { quoted: m})
         }
         const rperoses= (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` LAGI DI PEROSES`,"body": ` Pesanan Sedang di Peroses Admin`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://youtu.be/imFIX-Wrt3s"}}}, { quoted: m})
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` LAGI DI PEROSES`,"body": ` Pesanan Sedang di Peroses Admin`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://wa.me/6283110011351"}}}, { quoted: m})
         }
         const replay = (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Fleyvin Shop`,"body": ` `, "previewType": "PHOTO","thumbnailUrl": ` WhatsApp BOT Fleyvin Soft`,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://youtu.be/imFIX-Wrt3s"}}}, { quoted: m})
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Fleyvin Shop`,"body": ` `, "previewType": "PHOTO","thumbnailUrl": ` WhatsApp BOT Fleyvin Soft`,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://wa.me/6283110011351"}}}, { quoted: m})
         }
 try {
             let isNumber = x => typeof x === 'number' && !isNaN(x)
@@ -606,7 +606,7 @@ Please @${m.mentionedJid[0].split`@`[0]} to type accept/reject`
             }
             break
             case 'shdc': case 'scyxript': {
-                reply('Script : https://github.com/DGXeon/CheemsBot-MD\n Dont Forget To Give Star\n\nYoutube : https://youtu.be/imFIX-Wrt3s\n Dont Forget To Subscribe')
+                reply('Script : https://github.com/DGXeon/CheemsBot-MD\n Dont Forget To Give Star\n\nYoutube : https://wa.me/6283110011351\n Dont Forget To Subscribe')
             }
             break
             case 'chat': {
@@ -1220,12 +1220,12 @@ case 'antilink':
                     let btn = [{
                                 urlButton: {
                                     displayText: 'Aplikasi Fleyvin Shop📍',
-                                    url: 'https://github.com/DGXeon/CheemsBot-MD'
+                                    url: 'https://play.google.com/store/apps/details?id=com.fleyvin'
                                 }
                             }, {
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://github.com/DGXeon/CheemsBot-MD'
+                                    url: 'YouTube.com/xZrinva'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -1260,7 +1260,7 @@ case 'antilink':
 		    let btn = [{
                                 urlButton: {
                                     displayText: 'Aplikasi Fleyvin Shop',
-                                    url: 'https://github.com/DGXeon/CheemsBot-MD'
+                                    url: 'https://play.google.com/store/apps/details?id=com.fleyvin'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -2372,7 +2372,7 @@ Report Message: ${text}` })
 reply(`Successfully Reported To The Owner\n\nPlease Make Sure The Bug Is Valid, If You Play With This, Use This Feature Again And Again For No Reason, You Will Be Blocked For Sure !`)
                     }
                     break 
-case 'tes': case 'test': case 'alive': case 'bot': case 'robot': case 'cheems': case 'doge':{
+case 'tedds': case 'tesdt': case 'aflive': case 'fbot': case 'frobot': case 'cfheems': case 'fdoge':{
                 anu = `Hi ${pushname}
 Cheems Bot With You Forever!! 🐶🤚`
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
@@ -2385,7 +2385,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://youtu.be/imFIX-Wrt3s'
+                                    url: 'YouTube.com/xZrinva'
                                 }
                             }, {
                             	urlButton: {
@@ -2431,7 +2431,7 @@ How Are You? 😊
 
 ❏「 Fleyvin Shop 」
 
-┏━━⬣   🎀  𝑀𝑒𝓃??𝓊𝒶𝓁  🎀
+┏━━⬣   🎀  𝑀𝑒𝓃ju𝓊𝒶𝓁  🎀
 ┃⬡ Diamond Free Fire (via id)
 ┃⬡ Diamond Mobile Legends (via id)
 ┃⬡ Voucher Garena Shell
@@ -2453,12 +2453,12 @@ How Are You? 😊
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'Aplikasi Fleyvin Shop📱',
-                                    url: 'https://youtu.be/imFIX-Wrt3s'
+                                    url: 'https://play.google.com/store/apps/details?id=com.fleyvin'
                                 }
                             }, {
                             	urlButton: {
                                 displayText: 'YouTube📍',
-                                    url: 'https://github.com/DGXeon/CheemsBot-MD'
+                                    url: 'YouTibe.com/xZrinva'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -2709,37 +2709,41 @@ rabout(`┏━━⬣
 ┃⬡ Instagram :
 ┃    Instagram.com/fleyvin_soft
 ┃⬡ YouTube :
-┃    youtube.com/c/Fleyvin
+┃    YouTube.com/xZrinva
 ┃⬡ PlayStore :
-┃    play.google.com/dev.
+┃    play.google.com/store/apps/details?id=com.fleyvin
 ┃⬡ Group WhatsApp (Fleyvin Shop) :
-┃    whatsapp.com/
+┃    chat.whatsapp.com/EMP3AtdiM61IfX8spLzhWK
 ┃⬡ Nomor WhatsApp (Fleyvin Group) :
 ┃    wa.me/6283110011351
+┃⬡ Group Telegram (Fleyvin Shop) :
+┃    t.me/fleyvin_shop
+┃⬡ Nomor Tele (Fleyvin Group) :
+┃    t.me/fazrin_mauza
 ┗━━⬣
 `)
 break
 case 'pay': case 'payment': case 'bayar': case 'pembayaran': case 'metodepembayaran':
 rpay(`┏━━⬣
-┃⬡ GOPAY : SCAN QRIS
+┃⬡ *GOPAY* : SCAN QRIS
 ┃    Minta ke Admin
 
-┃⬡ DANA : 089630883352
+┃⬡ *DANA* : 089630883352
 ┃    A/n Alfi Reyhan
 
-┃⬡ OVO : 089630883352
+┃⬡ *OVO* : 089630883352
 ┃    A/n Alfi Reyhan
 
-┃⬡ ShopeePay : 083110011351
+┃⬡ *ShopeePay* : 083110011351
 ┃    A/n Ngairah
 
-┃⬡ SeaBank : 089630883352
-┃    A/n Supadmi
-
-┃⬡ BSI : 089630883352
+┃⬡ *SeaBank* : 901828965924
 ┃    A/n Ngairah
 
-┃⬡ BRI : 089630883352
+┃⬡ *BSI* : 089630883352
+┃    A/n Ngairah
+
+┃⬡ *BRI* : 089630883352
 ┃    A/n Alfi Reyhan
 
 ┃⬡ QRIS all payment
@@ -2804,7 +2808,7 @@ case 'grupmednu': {
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://youtu.be/imFIX-Wrt3s'
+                                    url: 'https://wa.me/6283110011351'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -2846,7 +2850,7 @@ case 'downloadmenu': {
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://youtu.be/imFIX-Wrt3s'
+                                    url: 'https://wa.me/6283110011351'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -2883,7 +2887,7 @@ case 'downloadmenu': {
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://youtu.be/imFIX-Wrt3s'
+                                    url: 'https://wa.me/6283110011351'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -2932,7 +2936,7 @@ case 'randommenu': {
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://youtu.be/imFIX-Wrt3s'
+                                    url: 'https://wa.me/6283110011351'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -2964,7 +2968,7 @@ case 'funmenu': {
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://youtu.be/imFIX-Wrt3s'
+                                    url: 'https://wa.me/6283110011351'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3004,7 +3008,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://youtu.be/imFIX-Wrt3s'
+                                    url: 'https://wa.me/6283110011351'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3038,7 +3042,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://youtu.be/imFIX-Wrt3s'
+                                    url: 'https://wa.me/6283110011351'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3096,7 +3100,7 @@ case 'horoscopemenukcodk': {
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://youtu.be/imFIX-Wrt3s'
+                                    url: 'https://wa.me/6283110011351'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3134,7 +3138,7 @@ case 'convertmenu': {
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://youtu.be/imFIX-Wrt3s'
+                                    url: 'https://wa.me/6283110011351'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3174,7 +3178,7 @@ case 'nocategorymenu': {
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://youtu.be/imFIX-Wrt3s'
+                                    url: 'https://wa.me/6283110011351'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3211,7 +3215,7 @@ case 'databasemenu': {
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://youtu.be/imFIX-Wrt3s'
+                                    url: 'https://wa.me/6283110011351'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3243,7 +3247,7 @@ case 'anonymouschatmenu': {
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://youtu.be/imFIX-Wrt3s'
+                                    url: 'https://wa.me/6283110011351'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3275,7 +3279,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://youtu.be/imFIX-Wrt3s'
+                                    url: 'https://wa.me/6283110011351'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3312,7 +3316,7 @@ break
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://youtu.be/imFIX-Wrt3s'
+                                    url: 'https://wa.me/6283110011351'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3326,7 +3330,7 @@ break
                 XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
 break
-  case 'allmenu': {
+  case 'allirirmenu': {
   	anu = `
   *All Menu*
   
@@ -3453,7 +3457,7 @@ break
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://youtu.be/imFIX-Wrt3s'
+                                    url: 'https://wa.me/6283110011351'
                                 }
                             }, {
                                 quickReplyButton: {
