@@ -1209,14 +1209,6 @@ case 'antilink':
             }
             break
             case 'bcgc': case 'bcgroup': {
-                if (!isCreator) throw mess.owner
-                if (!text) throw `Where is the text?\n\nExample : ${prefix + command} hello guys, am back`
-                let getGroups = await XeonBotInc.groupFetchAllParticipating()
-                let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
-                let anu = groups.map(v => v.id)
-                reply(`Send Broadcast To ${anu.length} Group Chat, Finish Time ${anu.length * 1.5} second`)
-                for (let i of anu) {
-                    await sleep(1500)
                     let btn = [{
                                 urlButton: {
                                     displayText: 'Aplikasi Fleyvin Shop📍',
@@ -1624,16 +1616,14 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
 	    break
             
             case 'wallpaper': {
-                if (!text) throw 'Enter Query Title'
-		let { wallpaper } = require('./lib/scraper')
                 anu = await wallpaper(text)
                 result = anu[Math.floor(Math.random() * anu.length)]
 		let buttons = [
-                    {buttonId: `wallpaper ${text}`, buttonText: {displayText: 'Next Image'}, type: 1}
+                    {buttonId: `wallpaper`, buttonText: {displayText: 'Next Image'}, type: 1}
                 ]
                 let buttonMessage = {
-                    image: { url: result.image[0] },
-                    caption: `⭔ Title : ${result.title}\n⭔ Category : ${result.type}\n⭔ Detail : ${result.source}\n⭔ Media Url : ${result.image[2] || result.image[1] || result.image[0]}`,
+                    image: { url: 'https://telegra.ph/file/68a43a27aeb2460ac3570.jpg' },
+                    caption: `⭔ Title : l\n⭔ Category :kn⭔ Detail :ii`,
                     footer: XeonBotInc.user.name,
                     buttons: buttons,
                     headerType: 4
