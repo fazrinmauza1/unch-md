@@ -101,7 +101,7 @@ return dDisplay + hDisplay + mDisplay + sDisplay;
 	
 //[target]\\
 	const reply = (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Fleyvin Shop`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/EMP3AtdiM61IfX8spLzhWK"}}}, { quoted: m})
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Shal Store`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/EMP3AtdiM61IfX8spLzhWK"}}}, { quoted: m})
         }
                 const rabout= (teks) => {
             XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Fleyvin Group`,"body": ` Temukan Kami di Media Sosial`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://wa.me/6283110011351"}}}, { quoted: m})
@@ -109,8 +109,8 @@ return dDisplay + hDisplay + mDisplay + sDisplay;
                 const rpay = (teks) => {
             XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Metode Pembayaran`,"body": ` `, "previewType": "PHOTO","thumbnailUrl": ` Klik untuk wa ke Admin`,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://wa.me/6283110011351"}}}, { quoted: m})
         }
-        const rff = (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Free Fire`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/EMP3AtdiM61IfX8spLzhWK"}}}, { quoted: m})
+        const rgf = (teks) => {
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Gift Skin & Item MLBB`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/EMP3AtdiM61IfX8spLzhWK"}}}, { quoted: m})
         }
         const rdone = (teks) => {
             XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` UDAH DI PEROSES`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/EMP3AtdiM61IfX8spLzhWK"}}}, { quoted: m})
@@ -119,7 +119,7 @@ return dDisplay + hDisplay + mDisplay + sDisplay;
             XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` LAGI DI PEROSES`,"body": ` Pesanan Sedang di Peroses Admin`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://wa.me/6283110011351"}}}, { quoted: m})
         }
         const replay = (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Fleyvin Shop`,"body": ` `, "previewType": "PHOTO","thumbnailUrl": ` WhatsApp BOT Fleyvin Soft`,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://wa.me/6283110011351"}}}, { quoted: m})
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Shal Store`,"body": ` `, "previewType": "PHOTO","thumbnailUrl": ` WhatsApp BOT Fleyvin Soft`,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://wa.me/6283110011351"}}}, { quoted: m})
         }
 try {
             let isNumber = x => typeof x === 'number' && !isNaN(x)
@@ -1208,6 +1208,48 @@ case 'antilink':
                 XeonBotInc.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: true, id: m.quoted.id, participant: m.quoted.sender } })
             }
             break
+            case 'bcgc': case 'bcgroup': {
+                if (!isCreator) throw mess.owner
+                if (!text) throw `Where is the text?\n\nExample : ${prefix + command} hello guys, am back`
+                let getGroups = await XeonBotInc.groupFetchAllParticipating()
+                let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
+                let anu = groups.map(v => v.id)
+                reply(`Send Broadcast To ${anu.length} Group Chat, Finish Time ${anu.length * 1.5} second`)
+                for (let i of anu) {
+                    await sleep(1500)
+                    let btn = [{
+                                urlButton: {
+                                    displayText: 'Aplikasi Fleyvin Shop📍',
+                                    url: 'https://play.google.com/store/apps/details?id=com.fleyvin'
+                                }
+                            }, {
+                                urlButton: {
+                                    displayText: 'YouTube📍',
+                                    url: 'YouTube.com/xZrinva'
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Listmenu',
+                                    id: 'list'
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: '👤Owner👤',
+                                    id: 'owner'
+                                }  
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Ikuti Kami',
+                                    id: 'about'
+                                }
+                            }]
+                      fatihgans = fs.readFileSync('./XeonMedia/cheemspic.jpg')
+                      let txt = `「 Fleyvin Shop Broadcast 」\n\n${text}`
+                      XeonBotInc.send5ButImg(i, txt, XeonBotInc.user.name, fatihgans, btn)
+                    }
+                reply(`Successful Sending Broadcast To ${anu.length} Group(s)`)
+            }
+            break
             case 'bc': case 'broadcast': case 'bcall': {
                 if (!isCreator) throw mess.owner
                 if (!text) throw `Where is the text?\n\nExample : ${prefix + command} cheems bot here`
@@ -1217,7 +1259,7 @@ case 'antilink':
 		    await sleep(1500)
 		    let btn = [{
                                 urlButton: {
-                                    displayText: 'Aplikasi Fleyvin Shop',
+                                    displayText: 'IG Shal Store',
                                     url: 'https://play.google.com/store/apps/details?id=com.fleyvin'
                                 }
                             }, {
@@ -1227,7 +1269,7 @@ case 'antilink':
                                 }
                             }]
                       fatihgans = fs.readFileSync('./XeonMedia/cheemspic.jpg')
-                      let txt = `「 Fleyvin Shop Broadcast 」\n\n${text}`
+                      let txt = `「 Shal Store Broadcast 」\n\n${text}`
                       XeonBotInc.send5ButImg(yoi, txt, `Broadcast By ${global.pengguna}`, fatihgans, btn)
 		}
 		reply('Broadcast Success')
@@ -2379,36 +2421,35 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 How Are You? 😊
 
 
-❏「 Fleyvin Shop 」
+❏「 Shall Store 」
 
 ┏━━⬣   🎀  𝑀𝑒𝓃ju𝓊𝒶𝓁  🎀
+┃⬡ Room Tournament
+┃⬡ Sewa Squad Verified
+┃⬡ Diamond Mobile Legend (via id)
 ┃⬡ Diamond Free Fire (via id)
-┃⬡ Diamond Mobile Legends (via id)
-┃⬡ Voucher Garena Shell
-┃⬡ OTP indo (+62) / NOKOS
-┃⬡ Jasa Pembuatan BOT WhatsApp
 ┗⬣
 
 ━━━━━ 𝗞𝗼𝗱𝗲 𝗕𝗼𝘁 ━━━━━
-#ff = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐃𝐌 𝐅𝐅
-#ml = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐃𝐌 𝐅𝐅
-#gs = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐆𝐚𝐫𝐞𝐧𝐚 𝐒𝐡𝐞𝐥𝐥
-#otp = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐎𝐓𝐏
-#bot = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐉𝐚𝐬𝐚 𝐁𝐮𝐚𝐭 𝐁𝐎𝐓
-#pay = 𝐃𝐚𝐟𝐭𝐚𝐫 𝐌𝐞𝐭𝐨𝐝𝐞 𝐏𝐞𝐦𝐛𝐚𝐲𝐚𝐫𝐚𝐧 𝐅𝐥𝐞𝐲𝐯𝐢𝐧 𝐒𝐡𝐨𝐩
+#rt = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 Room Tournament
+#sq = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 Sewa Squad Verified
+#gf = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 Gift Skin & Item Mobile Legend
+#ml = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 Dm MLBB
+#ff = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 Dm FF
+#pay = 𝐃𝐚𝐟𝐭𝐚𝐫 𝐌𝐞𝐭𝐨𝐝𝐞 𝐏𝐞𝐦𝐛𝐚𝐲𝐚𝐫𝐚𝐧
 
 
 𝘒𝘭𝘪𝘬 𝘛𝘰𝘮𝘣𝘰𝘭 𝘥𝘪 𝘉𝘢𝘸𝘢𝘩 𝘪𝘯𝘪
 `,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: 'Aplikasi Fleyvin Shop📱',
-                                    url: 'https://play.google.com/store/apps/details?id=com.fleyvin'
+                                    displayText: 'Follow IG',
+                                    url: 'https://Instagram.com/shal_store_'
                                 }
                             }, {
                             	urlButton: {
-                                displayText: 'YouTube📍',
-                                    url: 'YouTibe.com/xZrinva'
+                                displayText: 'Group WhatsApp📍',
+                                    url: 'https://chat.whatsapp.com/EpkwUobd6LN5hdSALiS4Az'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -2474,7 +2515,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
 
  Pilih Menu di Bawah ini\n\n`,
                     buttonText: "Menu",
-                    footerText: "_Fleyvin Shop_",
+                    footerText: "_Shal Store",
                     listType: "SINGLE_SELECT",
                     sections: [{
 								"title": "Group Menu",
@@ -2535,7 +2576,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                     description: `
  Pilih Menu di Bawah ini\n`,
                     buttonText: "Menu",
-                    footerText: "_Fleyvin Shop_",
+                    footerText: "_Shal Store",
                     listType: "SINGLE_SELECT",
                     sections: [{
 								"title": "Group Menu",
@@ -2595,35 +2636,40 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                     title: `Hi ${pushname}`,
                     description: `Silahkan Pilih Menu di Bawah ini\n\n`,
                     buttonText: "Menu",
-                    footerText: "_Fleyvin Shop_",
+                    footerText: "_Shal Store_",
                     listType: "SINGLE_SELECT",
                     sections: [{
 								"title": "List Produk",
 								"rows": [
 									{
-										"title": "Free Fire",
-										"description": "List Harga Diamond FF",
-										"rowId": `${prefix}ff`
+										"title": "Room Tournament MLBB",
+										"description": "List Harga Room Tournament",
+										"rowId": `${prefix}rt`
 									},
 									{
-										"title": "Mobile Legends",
-										"description": "List Harga Diamond MLBB",
-										"rowId": `${prefix}ml`
+										"title": "Sewa Squad Verified",
+										"description": "List Harga Sewa Squad Verif MLBB",
+										"rowId": `${prefix}sq`
 									},
 									{
-										"title": "Garena Shell",
-										"description": "List Harga Garena Shell",
-										"rowId": `${prefix}gs`
+										"title": "Gift Skin & Item MLBB",
+										"description": "List Harga Gift Skin & Item MLBB",
+										"rowId": `${prefix}gf`
+									},
+									{
+										"title": "Diamond ML A",
+										"description": "List Harga Diamond MLBB Paket A",
+										"rowId": `${prefix}mla`
 									},
 										{
-											"title": "OTP / NOKOS",
-										"description": "List Harga OTP indo / NOKOS",
-										"rowId": `${prefix}otp`
+											"title": "Diamond ML B",
+										"description": "List Harga Diamond MLBB Paket B",
+										"rowId": `${prefix}mlb`
 										},
 										{
-											"title": "BOT WhatsApp",
-										"description": "Jasa Pembuatan BOT WhatsApp",
-										"rowId": `${prefix}bot`
+											"title": "Diamond FF",
+										"description": "List Harga Diamond Free Fire",
+										"rowId": `${prefix}ff`
 										}
 								]
 							},
@@ -2632,17 +2678,17 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
 								"rows": [
 									{
 										"title": "Metode Pembayaran",
-										"description": "List Metode Pembayaran Fleyvin Shop",
+										"description": "List Metode Pembayaran Shal Store",
 										"rowId": `${prefix}pay`
 									}
 								]
 							},
 							{
-								"title": "Sosial Media Fleyvin",
+								"title": "Sosial Media Shal Store",
 								"rows": [
 									{
 										"title": "Temukan Kami",
-										"description": "Menampilkan Sosial Media Fleyvin Group",
+										"description": "Menampilkan Sosial Media Shal Store",
 										"rowId": `${prefix}about`
 									}
 								]
@@ -2654,84 +2700,82 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
             XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-case 'fleyvinshop': case 'about': case 'fleyvin':
+case 'shallstore': case 'about': case 'shal':
 rabout(`┏━━⬣
 ┃⬡ Instagram :
-┃    Instagram.com/fleyvin_soft
-┃⬡ YouTube :
-┃    YouTube.com/xZrinva
-┃⬡ PlayStore :
-┃    play.google.com/store/apps/details?id=com.fleyvin
-┃⬡ Group WhatsApp (Fleyvin Shop) :
-┃    chat.whatsapp.com/EMP3AtdiM61IfX8spLzhWK
-┃⬡ Nomor WhatsApp (Fleyvin Group) :
-┃    wa.me/6283110011351
-┃⬡ Group Telegram (Fleyvin Shop) :
-┃    t.me/fleyvin_shop
-┃⬡ Nomor Tele (Fleyvin Group) :
-┃    t.me/fazrin_mauza
+┃    Instagram.com/shal_store_
+┃⬡ Group WhatsApp (Shal Store) :
+┃    chat.whatsapp.com/EpkwUobd6LN5hdSALiS4Az
+┃⬡ Nomor WhatsApp (Shal Store) :
+┃    wa.me/6285863438129
 ┗━━⬣
 `)
 break
 case 'pay': case 'payment': case 'bayar': case 'pembayaran': case 'metodepembayaran':
 rpay(`┏━━⬣
-┃⬡ *GOPAY* : SCAN QRIS
-┃    Minta ke Admin
+┃⬡ *BCA* : 3770678969
+┃    an. Muhamad Aqshal Fauzian R 
 
-┃⬡ *DANA* : 089630883352
-┃    A/n Alfi Reyhan
-
-┃⬡ *OVO* : 089630883352
-┃    A/n Alfi Reyhan
-
-┃⬡ *ShopeePay* : 083110011351
+┃⬡ *GOPAY* : 085863438129
 ┃    A/n Ngairah
 
-┃⬡ *SeaBank* : 901828965924
-┃    A/n Ngairah
-
-┃⬡ *BSI* : 089630883352
-┃    A/n Ngairah
-
-┃⬡ *BRI* : 089630883352
+┃⬡ *DANA* : 085863438129
 ┃    A/n Alfi Reyhan
+
+┃⬡ *OVO* : 085863438129
+┃    A/n Alfi Reyhan
+
+┃⬡ *ShopeePay* : 085863438129
+┃    A/n Ngairah
 
 ┃⬡ QRIS all payment
-┃    *Minta ke Admin sebut nominal pembayaran*
+┃    *Minta ke Admin*
 ┗━━⬣
 `)
 break
-case 'ff': case 'freefire': case 'epep':
-rff(`Via ID || 1-5 Menit
-Status : READY
+case 'giftskin': case 'gift': case 'gf': case 'giftitem': case 'giftmlbb':
+rgf(`*GIFT SKIN*
 
-70       💎 : Rp 10.000
-100     💎 : Rp 15.000
-120.    💎 : Rp 18.000
-140.    💎 : Rp 20.000
-150.    💎 : Rp 22.000
-200.    💎 : Rp 28.000
-210     💎 : Rp 30.000
-280     💎 : Rp 39.000
-355     💎 : Rp 48.000
-425     💎 : Rp 58.000
-500     💎 : Rp 67.000
-720     💎 : Rp 95.000
-860     💎 : Rp 113.000
-1000   💎 : Rp 130.000
-1075   💎 : Rp 140.000
-1440   💎 : Rp 185.000
-2000   💎 : Rp 255.000
-2500   💎 : Rp 320.000
+*SKIN READY*
+269   💎	NORMAL        = 43.000
+399   💎	ELITE              = 60.000
+599   💎	ELITE              = 90.000
+749   💎	SPECIAL        = 112.000
+899   💎	EPIC.              = 135.000
+1089 💎	LIGHTBORN = 163.000
+͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏
+*GIFT ITEM*
 
-MM :  30.000
-MB : 140.000
-͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏
-*FORMAT ORDER*
-ID :
-NICK :
-ORDER DM :`)
+109   💎 EMOTE                        = 20.000
+239   💎 CHANGE NAME.       = 40.000
+299   💎SQ CHANGE NAME    = 47.000
+199   💎 CREATE SQUAD         = 33.000
+1000💎 CHANGE FLAG           = 147.000
+599   💎 ALL HERO.                  = 88.000
+
+
+👤 BERTEMAN 7 HARI
+📆 SEND SESUAI JADWAL
+⏰ START SEND SAAT MALAM
+NOTE :
+1️⃣ NO BAWELL
+2️⃣NO CHANGE NAME
+3️⃣MAU CEPET BELI PAKAI DM`)
 break
+            case 'roomtournament': case 'room': case 'roomtour': case 'rt': {       
+		let buttons = [
+                    {buttonId: `pay`, buttonText: {displayText: 'Metode Pembayaran'}, type: 1}
+                ]
+                let buttonMessage = {
+                    image: { url: 'https://telegra.ph/file/5478b95188081790ba10e.jpg' },
+                    caption: `List Harga Room Tournament Mobile Legend`,
+                    footer: XeonBotInc.user.name,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
 case 'grupmednu': {
 	            anu = `
   *Group Menu*
