@@ -1208,40 +1208,6 @@ case 'antilink':
                 XeonBotInc.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: true, id: m.quoted.id, participant: m.quoted.sender } })
             }
             break
-            case 'bcgc': case 'bcgroup': {
-                    let btn = [{
-                                urlButton: {
-                                    displayText: 'Aplikasi Fleyvin Shop📍',
-                                    url: 'https://play.google.com/store/apps/details?id=com.fleyvin'
-                                }
-                            }, {
-                                urlButton: {
-                                    displayText: 'YouTube📍',
-                                    url: 'YouTube.com/xZrinva'
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: 'Listmenu',
-                                    id: 'list'
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: '👤Owner👤',
-                                    id: 'owner'
-                                }  
-                            }, {
-                                quickReplyButton: {
-                                    displayText: 'Ikuti Kami',
-                                    id: 'about'
-                                }
-                            }]
-                      fatihgans = fs.readFileSync('./XeonMedia/cheemspic.jpg')
-                      let txt = `「 Fleyvin Shop Broadcast 」\n\n${text}`
-                      XeonBotInc.send5ButImg(i, txt, XeonBotInc.user.name, fatihgans, btn)
-                    }
-                reply(`Successful Sending Broadcast To ${anu.length} Group(s)`)
-            }
-            break
             case 'bc': case 'broadcast': case 'bcall': {
                 if (!isCreator) throw mess.owner
                 if (!text) throw `Where is the text?\n\nExample : ${prefix + command} cheems bot here`
@@ -1614,7 +1580,6 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                 XeonBotInc.sendMessage(m.chat, { image: { url: random.female }, caption: `Couple Female` }, { quoted: m })
             }
 	    break
-            
             case 'wallpaper': {
                 anu = await wallpaper(text)
                 result = anu[Math.floor(Math.random() * anu.length)]
