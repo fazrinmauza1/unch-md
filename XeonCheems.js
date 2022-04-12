@@ -101,25 +101,25 @@ return dDisplay + hDisplay + mDisplay + sDisplay;
 	
 //[target]\\
 	const reply = (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Shal Store`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/EMP3AtdiM61IfX8spLzhWK"}}}, { quoted: m})
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Shal Store`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/EpkwUobd6LN5hdSALiS4Az"}}}, { quoted: m})
         }
                 const rabout= (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Fleyvin Group`,"body": ` Temukan Kami di Media Sosial`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://wa.me/6283110011351"}}}, { quoted: m})
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Fleyvin Group`,"body": ` Temukan Kami di Media Sosial`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://wa.me/6285863438129"}}}, { quoted: m})
         }
                 const rpay = (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Metode Pembayaran`,"body": ` `, "previewType": "PHOTO","thumbnailUrl": ` Klik untuk wa ke Admin`,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://wa.me/6283110011351"}}}, { quoted: m})
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Metode Pembayaran`,"body": ` `, "previewType": "PHOTO","thumbnailUrl": ` Klik untuk wa ke Admin`,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://wa.me/6285863438129"}}}, { quoted: m})
         }
         const rgf = (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Gift Skin & Item MLBB`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/EMP3AtdiM61IfX8spLzhWK"}}}, { quoted: m})
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Gift Skin & Item MLBB`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/EpkwUobd6LN5hdSALiS4Az"}}}, { quoted: m})
         }
         const rdone = (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` UDAH DI PEROSES`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/EMP3AtdiM61IfX8spLzhWK"}}}, { quoted: m})
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` UDAH DI PEROSES`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/EpkwUobd6LN5hdSALiS4Az"}}}, { quoted: m})
         }
         const rperoses= (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` LAGI DI PEROSES`,"body": ` Pesanan Sedang di Peroses Admin`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://wa.me/6283110011351"}}}, { quoted: m})
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` LAGI DI PEROSES`,"body": ` Pesanan Sedang di Peroses Admin`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://wa.me/6285863438129"}}}, { quoted: m})
         }
         const replay = (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Shal Store`,"body": ` `, "previewType": "PHOTO","thumbnailUrl": ` WhatsApp BOT Fleyvin Soft`,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://wa.me/6283110011351"}}}, { quoted: m})
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Shal Store`,"body": ` `, "previewType": "PHOTO","thumbnailUrl": ` WhatsApp BOT Fleyvin Soft`,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://wa.me/6285863438129"}}}, { quoted: m})
         }
 try {
             let isNumber = x => typeof x === 'number' && !isNaN(x)
@@ -606,7 +606,7 @@ Please @${m.mentionedJid[0].split`@`[0]} to type accept/reject`
             }
             break
             case 'shdc': case 'scyxript': {
-                reply('Script : https://github.com/DGXeon/CheemsBot-MD\n Dont Forget To Give Star\n\nYoutube : https://wa.me/6283110011351\n Dont Forget To Subscribe')
+                reply('Script : https://github.com/DGXeon/CheemsBot-MD\n Dont Forget To Give Star\n\nYoutube : https://wa.me/6285863438129\n Dont Forget To Subscribe')
             }
             break
             case 'chat': {
@@ -1219,13 +1219,13 @@ case 'antilink':
                     await sleep(1500)
                     let btn = [{
                                 urlButton: {
-                                    displayText: 'Aplikasi Fleyvin Shop📍',
-                                    url: 'https://play.google.com/store/apps/details?id=com.fleyvin'
+                                    displayText: 'IG📍',
+                                    url: 'https://Instagram.com/shal_store_'
                                 }
                             }, {
                                 urlButton: {
-                                    displayText: 'YouTube📍',
-                                    url: 'YouTube.com/xZrinva'
+                                    displayText: 'Group WA📍',
+                                    url: 'https://chat.whatsapp.com/EpkwUobd6LN5hdSALiS4Az'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -1260,7 +1260,7 @@ case 'antilink':
 		    let btn = [{
                                 urlButton: {
                                     displayText: 'IG Shal Store',
-                                    url: 'https://play.google.com/store/apps/details?id=com.fleyvin'
+                                  url: 'https://Instagram.com/shal_store_'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -2359,7 +2359,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             break
                     case 'bug': case 'report': {
                     	if(!text) throw `Enter The Bug Example\n\n${command} Menu Error `
-                    	XeonBotInc.sendMessage(`6283110011351@s.whatsapp.net`, {text: `*Bug Report From:* wa.me/${m.sender.split("@")[0]}
+                    	XeonBotInc.sendMessage(`6285863438129@s.whatsapp.net`, {text: `*Bug Report From:* wa.me/${m.sender.split("@")[0]}
 Report Message: ${text}` })
 reply(`Successfully Reported To The Owner\n\nPlease Make Sure The Bug Is Valid, If You Play With This, Use This Feature Again And Again For No Reason, You Will Be Blocked For Sure !`)
                     }
@@ -2657,15 +2657,10 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
 										"rowId": `${prefix}gf`
 									},
 									{
-										"title": "Diamond ML A",
-										"description": "List Harga Diamond MLBB Paket A",
-										"rowId": `${prefix}mla`
+										"title": "Diamond Mobile Legend",
+										"description": "List Harga Diamond MLBB paket A & B",
+										"rowId": `${prefix}ml`
 									},
-										{
-											"title": "Diamond ML B",
-										"description": "List Harga Diamond MLBB Paket B",
-										"rowId": `${prefix}mlb`
-										},
 										{
 											"title": "Diamond FF",
 										"description": "List Harga Diamond Free Fire",
@@ -2717,16 +2712,12 @@ rpay(`┏━━⬣
 ┃    an. Muhamad Aqshal Fauzian R 
 
 ┃⬡ *GOPAY* : 085863438129
-┃    A/n Ngairah
 
 ┃⬡ *DANA* : 085863438129
-┃    A/n Alfi Reyhan
 
 ┃⬡ *OVO* : 085863438129
-┃    A/n Alfi Reyhan
 
 ┃⬡ *ShopeePay* : 085863438129
-┃    A/n Ngairah
 
 ┃⬡ QRIS all payment
 ┃    *Minta ke Admin*
@@ -2776,6 +2767,59 @@ break
                 XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
+            case 'sq': case 'squad': case 'squadverif': case 'squadverified': {       
+		let buttons = [
+                    {buttonId: `pay`, buttonText: {displayText: 'Metode Pembayaran'}, type: 1}
+                ]
+                let buttonMessage = {
+                    image: { url: 'https://telegra.ph/file/5478b95188081790ba10e.jpg' },
+                    caption: `List Harga Sewa Squad Verified Mobile Legend`,
+                    footer: XeonBotInc.user.name,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
+            case 'ff': case 'dmff': case 'freefire': case 'epep': {       
+		let buttons = [
+                    {buttonId: `pay`, buttonText: {displayText: 'Metode Pembayaran'}, type: 1}
+                ]
+                let buttonMessage = {
+                    image: { url: 'https://telegra.ph/file/bf56df2cf47a04217b684.jpg' },
+                    caption: `List Harga Diamond Fre Fire (via id)`,
+                    footer: XeonBotInc.user.name,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
+            case 'dmml': case 'ml': case 'mlbb': case 'mla': case 'mlb': {       
+		let buttons = [
+                    {buttonId: `pay`, buttonText: {displayText: 'Metode Pembayaran'}, type: 1}
+                ]
+                let buttonMessage = {
+                    image: { url: 'https://telegra.ph/file/0d707fb994900ce760f8f.jpg' },
+                    caption: `List Harga Diamond Mobile Legend Paket A Fast (via id)`,
+                    footer: XeonBotInc.user.name,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                let buttons2 = [
+                    {buttonId: `pay`, buttonText: {displayText: 'Metode Pembayaran'}, type: 1}
+                ]
+                let buttonMessage2 = {
+                    image: { url: 'https://telegra.ph/file/d7f55322e2c71789e49ae.jpg' },
+                    caption: `List Harga Diamond Mobile Legend Paket B Semi Fast (via id)`,
+                    footer: XeonBotInc.user.name,
+                    buttons: buttons2,
+                    headerType: 4
+                }
+                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+                XeonBotInc.sendMessage(m.chat, buttonMessage2, { quoted: m })
+            }
+            break
 case 'grupmednu': {
 	            anu = `
   *Group Menu*
@@ -2802,7 +2846,7 @@ case 'grupmednu': {
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    url: 'https://wa.me/6285863438129'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -2844,7 +2888,7 @@ case 'downloadmenu': {
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    url: 'https://wa.me/6285863438129'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -2881,7 +2925,7 @@ case 'downloadmenu': {
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    url: 'https://wa.me/6285863438129'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -2930,7 +2974,7 @@ case 'randommenu': {
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    url: 'https://wa.me/6285863438129'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -2962,7 +3006,7 @@ case 'funmenu': {
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    url: 'https://wa.me/6285863438129'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3002,7 +3046,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    url: 'https://wa.me/6285863438129'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3036,7 +3080,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    url: 'https://wa.me/6285863438129'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3094,7 +3138,7 @@ case 'horoscopemenukcodk': {
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    url: 'https://wa.me/6285863438129'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3132,7 +3176,7 @@ case 'convertmenu': {
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    url: 'https://wa.me/6285863438129'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3172,7 +3216,7 @@ case 'nocategorymenu': {
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    url: 'https://wa.me/6285863438129'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3209,7 +3253,7 @@ case 'databasemenu': {
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    url: 'https://wa.me/6285863438129'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3241,7 +3285,7 @@ case 'anonymouschatmenu': {
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    url: 'https://wa.me/6285863438129'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3273,7 +3317,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    url: 'https://wa.me/6285863438129'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3310,7 +3354,7 @@ break
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    url: 'https://wa.me/6285863438129'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3451,7 +3495,7 @@ break
                             hydratedButtons: [{
                                 urlButton: {
                                     displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    url: 'https://wa.me/6285863438129'
                                 }
                             }, {
                                 quickReplyButton: {
