@@ -85,7 +85,6 @@ module.exports = XeonBotInc = async (XeonBotInc, m, chatUpdate, store) => {
 	const isPremium = isCreator || global.premium.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) || false
 	
 //════════[runtime]═════════//
-const time = moment().tz('Asia/Jakarta').format("HH:mm:ss")
 const runtime = function (seconds) {
 seconds = Number(seconds);
 var d = Math.floor(seconds / (3600 * 24));
@@ -101,25 +100,11 @@ return dDisplay + hDisplay + mDisplay + sDisplay;
 	
 //[target]\\
 	const reply = (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Fleyvin Shop`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/EMP3AtdiM61IfX8spLzhWK"}}}, { quoted: m})
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botnma}`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/HYj9w5Jrv6CROxyeQbHoS"}}}, { quoted: m})
         }
-                const rabout= (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Fleyvin Group`,"body": ` Temukan Kami di Media Sosial`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://wa.me/6283110011351"}}}, { quoted: m})
-        }
-                const rpay = (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Metode Pembayaran`,"body": ` `, "previewType": "PHOTO","thumbnailUrl": ` Klik untuk wa ke Admin`,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://wa.me/6283110011351"}}}, { quoted: m})
-        }
-        const rff = (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Free Fire`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/EMP3AtdiM61IfX8spLzhWK"}}}, { quoted: m})
-        }
-        const rdone = (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` UDAH DI PEROSES`,"body": ` Join Bot's Official GC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://chat.whatsapp.com/EMP3AtdiM61IfX8spLzhWK"}}}, { quoted: m})
-        }
-        const rperoses= (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` LAGI DI PEROSES`,"body": ` Pesanan Sedang di Peroses Admin`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://wa.me/6283110011351"}}}, { quoted: m})
-        }
+        
         const replay = (teks) => {
-            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` Fleyvin Shop`,"body": ` `, "previewType": "PHOTO","thumbnailUrl": ` WhatsApp BOT Fleyvin Soft`,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://wa.me/6283110011351"}}}, { quoted: m})
+            XeonBotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botnma}`,"body": ` Chat WhatsApp Owner`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/cheemspic.jpg`),"sourceUrl": "https://wa.me/6281328040710"}}}, { quoted: m})
         }
 try {
             let isNumber = x => typeof x === 'number' && !isNaN(x)
@@ -487,28 +472,31 @@ click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
             let afkTime = user.afkTime
             if (!afkTime || afkTime < 0) continue
             let reason = user.afkReason || ''
-            reply(`Ada apa tag admin?
+            reply(`
+Don't tag him!
+He's in Offline/AFK, ${reason ? 'with reason ' + reason : 'no reason'}
+Its been ${clockString(new Date - afkTime)}
 `.trim())
         }
-        switch(command) {
-	    case 'pr': case 'otw': case 'peroses': {
-		             if (!isCreator) throw mess.owner
-                let user = global.db.users[m.sender]
-                user.afkTime = + new Date
-                user.afkReason = text
-            ter = command[1].toLowerCase()
-            tex = m.quoted ? m.quoted.text ? m.quoted.text : q ? q : m.text : q ? q : m.text
-            rperoses(tex.replace(/[]/g, ter).replace(/[]/g, ter.toUpperCase()))
-            }
-            break	
-            case 'dff' : {
+
+        if (db.users[m.sender].afkTime > -1) {
             let user = global.db.users[m.sender]
             reply(`
 You came back online from AFK${user.afkReason ? ' after ' + user.afkReason : ''}
 In ${clockString(new Date - user.afkTime)}
 `.trim())
-}
-break
+            user.afkTime = -1
+            user.afkReason = ''
+        }
+	    
+        switch(command) {
+	    case 'afk': {
+                let user = global.db.users[m.sender]
+                user.afkTime = + new Date
+                user.afkReason = text
+                reply(`${m.pushName} Already Afk${text ? ': ' + text : ''}`)
+            }
+            break	
         case 'ttc': case 'ttt': case 'tictactoe': {
             let TicTacToe = require("./lib/tictactoe")
             this.game = this.game ? this.game : {}
@@ -601,12 +589,12 @@ Please @${m.mentionedJid[0].split`@`[0]} to type accept/reject`
             }
             }
             break
-	    case 'donddasi': case 'dddonate': case 'sewabfffot': case 'sefwa': case 'buypreddmium': case 'doneeate': {
+	    case 'donhasi': case 'donhate': case 'sewhabot': case 'sehwa': case 'buypjremium': case 'djonate': {
                 XeonBotInc.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/6ba2aed566865a068e91f.jpg' }, caption: `*Hi bro ${m.pushName}*\n\n Bot Rental Price\n⭔ 250INR Per Group via Gpay/paytm/phonepe 1 Month\n\nFor more details, you can chat with the owner\nhttps://wa.me/916909137213 (Owner)\n\nDonate Me : \n\n⭔ Fampay : https://telegra.ph/file/6ba2aed566865a068e91f.jpg\n⭔ Paytm : https://telegra.ph/file/577bd4f28d90ca2c7f369.jpg` }, { quoted: m })
             }
             break
-            case 'shdc': case 'scyxript': {
-                reply('Script : https://github.com/DGXeon/CheemsBot-MD\n Dont Forget To Give Star\n\nYoutube : https://wa.me/6283110011351\n Dont Forget To Subscribe')
+            case 'sc': case 'script': {
+                reply('Script : https://instagram.com/adiibah_asho\n Dont Forget To Give Star\n\nYoutube : https://wa.me/6281328040710\n Dont Forget To Subscribe')
             }
             break
             case 'chat': {
@@ -646,22 +634,12 @@ Please @${m.mentionedJid[0].split`@`[0]} to type accept/reject`
                 }
             }
             break
-            case 'done': case 'd': {
-             if (!isCreator) throw mess.owner
-              let user = global.db.users[m.sender]
-            rdone(`┏┉⌣ ┈̥-̶̯͡..̷̴✽̶┄┈┈┈┈┈┈┈┉┓
-┆ *TRANSAKSI SUKSES*
-└┈┈┈┈┈┈┈┈⌣ ┈̥-̶̯͡..̷̴✽̶⌣ ✽̶
-
-*PESANAN :* ${text} 
-*STATUS :* Telah di Peroses Admin
-*JAM :* ${time}
-*WAKTU PEROSES :*  ${clockString(new Date - user.afkTime)}
-͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏
-_Terimakasih sudah order, Silahkan di cek pesanan anda_
-`.trim())
-}
-	    break
+            case 'halahkdkdkd': case 'hilihdkksls': case 'huluhkdksls': case 'helehkdkdkd': case 'holohkdkskks': //this is in indonesian so if u want to activate u can but will be in indonesian (thanks to respected creator of this case)
+            if (!m.quoted && !text) throw `Send/reply text with caption ${prefix + command}`
+            ter = command[1].toLowerCase()
+            tex = m.quoted ? m.quoted.text ? m.quoted.text : q ? q : m.text : q ? q : m.text
+            reply(tex.replace(/[aiueo]/g, ter).replace(/[AIUEO]/g, ter.toUpperCase()))
+            break
             case 'tebakjxkzkossihdhdidii': { //this is in indonesian so if u want to activate u can but will be in indonesian (thanks to respected creator of this case)
                 if (!text) throw `Example : ${prefix + command} lagu\n\nOption : \n1. music\n2. picture\n3. word\n4. sentence\n5. lyrics\n6.rice cake`
                 if (args[0] === "lagu") {
@@ -808,7 +786,7 @@ Ciee Whats Going On💖👀`
                 await XeonBotInc.groupAcceptInvite(result).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
             }
             break
-            case 'keluar': case 'leave': {
+            case 'leave': {
                 if (!isCreator) throw mess.owner
                 await XeonBotInc.groupLeave(m.chat).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
             }
@@ -817,7 +795,7 @@ Ciee Whats Going On💖👀`
 		if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
-		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+' Hai Wibu'
+		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await XeonBotInc.groupParticipantsUpdate(m.chat, [users], 'remove').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 	}
 	break
@@ -825,14 +803,9 @@ Ciee Whats Going On💖👀`
 		if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
-                 let msgs = JSON.parse(fs.readFileSync('./src/database.json'))
-	        let seplit = Object.entries(global.db.database).map(([nama, isi]) => { return { nama, ...isi } })
-		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'\nHai wibu'
-for (let i of seplit) {
-		    users += `⬡ *Name :* `
-	        }
-		replay(users)
-		        }
+		let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+		await XeonBotInc.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
+	}
 	break
 	case 'promote': {
 		if (!m.isGroup) throw mess.group
@@ -922,7 +895,7 @@ let teks = `══✪〘 *👥 Tag All* 〙✪══
                 XeonBotInc.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: m })
                 }
                 break
-                case 'hidetag': case 'h': {
+                case 'hidetag': {
             if (!m.isGroup) throw mess.group
             if (!isAdmins) throw mess.admin
             XeonBotInc.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: m })
@@ -1103,7 +1076,24 @@ break
             reply('Successfully Deleted Vote Session In This Group')
 	    }
             break
-              
+               case 'group': case 'grup': {
+                if (!m.isGroup) throw mess.group
+                if (!isBotAdmins) throw mess.botAdmin
+                if (!isAdmins) throw mess.admin
+                if (args[0] === 'close'){
+                    await XeonBotInc.groupSettingUpdate(m.chat, 'announcement').then((res) => reply(`Successful Closing The Group`)).catch((err) => reply(jsonformat(err)))
+                } else if (args[0] === 'open'){
+                    await XeonBotInc.groupSettingUpdate(m.chat, 'not_announcement').then((res) => reply(`Successful Opening The Group`)).catch((err) => reply(jsonformat(err)))
+                } else {
+                let buttons = [
+                        { buttonId: 'group open', buttonText: { displayText: '⭕Open⭕' }, type: 1 },
+                        { buttonId: 'group close', buttonText: { displayText: '🚫Close🚫' }, type: 1 }
+                    ]
+                    await XeonBotInc.sendButtonText(m.chat, buttons, `Group Mode`, XeonBotInc.user.name, m)
+
+             }
+            }
+            break
             case 'editinfo': {
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
@@ -1219,18 +1209,18 @@ case 'antilink':
                     await sleep(1500)
                     let btn = [{
                                 urlButton: {
-                                    displayText: 'Aplikasi Fleyvin Shop📍',
-                                    url: 'https://play.google.com/store/apps/details?id=com.fleyvin'
+                                    displayText: 'WA Owner👤',
+                                    url: 'https://instagram.com/adiibah_asho'
                                 }
                             }, {
-                                urlButton: {
-                                    displayText: 'YouTube📍',
-                                    url: 'YouTube.com/xZrinva'
+                                callButton: {
+                                    displayText: 'Owner Number👤',
+                                    phoneNumber: '+91 690-9137-213'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Listmenu',
-                                    id: 'list'
+                                    displayText: '📶Bot Status📶',
+                                    id: 'ping'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -1239,12 +1229,12 @@ case 'antilink':
                                 }  
                             }, {
                                 quickReplyButton: {
-                                    displayText: 'Ikuti Kami',
-                                    id: 'about'
+                                    displayText: 'Script',
+                                    id: 'sc'
                                 }
                             }]
                       fatihgans = fs.readFileSync('./XeonMedia/cheemspic.jpg')
-                      let txt = `「 Fleyvin Shop Broadcast 」\n\n${text}`
+                      let txt = `「 cZ Unch Broadcast 」\n\n${text}`
                       XeonBotInc.send5ButImg(i, txt, XeonBotInc.user.name, fatihgans, btn)
                     }
                 reply(`Successful Sending Broadcast To ${anu.length} Group(s)`)
@@ -1252,15 +1242,15 @@ case 'antilink':
             break
             case 'bc': case 'broadcast': case 'bcall': {
                 if (!isCreator) throw mess.owner
-                if (!text) throw `Where is the text?\n\nExample : ${prefix + command} cheems bot here`
+                if (!text) throw `Where is the text?\n\nExample : ${prefix + command} cZ Unch here`
                 let anu = await store.chats.all().map(v => v.id)
                 reply(`Mengirim Broadcast Ke ${anu.length} Chat\nWaktu Selesai ${anu.length * 1.5} second`)
 		for (let yoi of anu) {
 		    await sleep(1500)
 		    let btn = [{
                                 urlButton: {
-                                    displayText: 'Aplikasi Fleyvin Shop',
-                                    url: 'https://play.google.com/store/apps/details?id=com.fleyvin'
+                                    displayText: 'Instagram',
+                                    url: 'https://instagram.com/adiibah_asho'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -1269,7 +1259,7 @@ case 'antilink':
                                 }
                             }]
                       fatihgans = fs.readFileSync('./XeonMedia/cheemspic.jpg')
-                      let txt = `「 Fleyvin Shop Broadcast 」\n\n${text}`
+                      let txt = `「 cZ Unch Broadcast 」\n\n${text}`
                       XeonBotInc.send5ButImg(yoi, txt, `Broadcast By ${global.pengguna}`, fatihgans, btn)
 		}
 		reply('Broadcast Success')
@@ -1290,6 +1280,13 @@ case 'antilink':
                 XeonBotInc.sendTextWithMentions(m.chat, teks, m)
             }
             break
+            case 'q': case 'quoted': {
+		if (!m.quoted) return reply('Reply Message!!')
+		let wokwol = await XeonBotInc.serializeM(await m.getQuotedObj())
+		if (!wokwol.quoted) return reply('The message you replied to does not contain a reply')
+		await wokwol.quoted.copyNForward(m.chat, true)
+            }
+	    break
             case 'listpc': {
                  let anu = await store.chats.all().filter(v => v.id.endsWith('.net')).map(v => v.id)
                  let teks = `⬣ *PERSONAL CHAT LIST*\n\nTotal Chat : ${anu.length} Chat\n\n`
@@ -1625,7 +1622,20 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                 XeonBotInc.sendMessage(m.chat, { image: { url: random.female }, caption: `Couple Female` }, { quoted: m })
             }
 	    break
-            
+            case 'coffee': case 'kopi': {
+            let buttons = [
+                    {buttonId: `coffe`, buttonText: {displayText: '➡️Next Image➡️'}, type: 1}
+                ]
+                let buttonMessage = {
+                    image: { url: 'https://coffee.alexflipnote.dev/random' },
+                    caption: `☕Random Coffee☕`,
+                    footer: XeonBotInc.user.name,
+                    buttons: buttons,
+                    headerType: 4
+                }
+                XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
+            }
+            break
             case 'wallpaper': {
                 if (!text) throw 'Enter Query Title'
 		let { wallpaper } = require('./lib/scraper')
@@ -1692,13 +1702,19 @@ message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { uplo
                 XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-            case 'gtts/id': case 'neon':  case '3ddeepsea': case 'americanflag': case '3dscifi': case '3drainbow': case '3dwaterpipe': case 'halloweenskeleton': case 'sketch': case 'bluecircuit': case 'space': case 'metallic': case 'fiction': case 'greenhorror': case 'transformer': case 'berry': case 'thunder': case 'magma': case '3dcrackedstone': case '3dneonlight': case 'impressiveglitch': case 'naturalleaves': case 'fireworksparkle': case 'matrix': case 'dropwater':  case 'harrypotter': case 'foggywindow': case 'neondevils': case 'christmasholiday': case '3dgradient': case 'blackpink': case 'gluetext': {
+            case '3dchristmas': case '3ddeepsea': case 'americanflag': case '3dscifi': case '3drainbow': case '3dwaterpipe': case 'halloweenskeleton': case 'sketch': case 'bluecircuit': case 'space': case 'metallic': case 'fiction': case 'greenhorror': case 'transformer': case 'berry': case 'thunder': case 'magma': case '3dcrackedstone': case '3dneonlight': case 'impressiveglitch': case 'naturalleaves': case 'fireworksparkle': case 'matrix': case 'dropwater':  case 'harrypotter': case 'foggywindow': case 'neondevils': case 'christmasholiday': case '3dgradient': case 'blackpink': case 'gluetext': {
                 if (!text) throw `Example : ${prefix + command} text`
                 replay(mess.wait)
-                XeonBotInc.sendMessage(m.chat, { audio: { url: api('zenz', '/' + command, { text: text }, 'apikey') }, fileName: 'asuu.mp3', mimetype: 'audio/mpeg' }, { ptt: true, quoted: m })
+                XeonBotInc.sendMessage(m.chat, { image: { url: api('zenz', '/textpro/' + command, { text: text }, 'apikey') }, caption: `Text Pro ${command}` }, { quoted: m})
 	    }
             break
-            case 'ffcover': case 'crossfire': case 'galaxy': case 'glass': case 'beach': case 'blackpink': case 'igcertificate': case 'ytcertificate': {
+	    case 'shadow': case 'romantic': case 'smoke': case 'burnpapper': case 'naruto': case 'lovemsg': case 'grassmsg': case 'lovetext': case 'coffecup': case 'butterfly': case 'harrypotter': case 'retrolol': {
+                if (!text) throw 'where is the text?'
+                replay(mess.wait)
+                XeonBotInc.sendMessage(m.chat, { image: { url: api('zenz', '/photooxy/' + command, { text: text }, 'apikey') }, caption: `Photo Oxy ${command}` }, { quoted: m })
+            }
+            break
+            case 'ffcover': case 'crossfire': case 'galaxy': case 'glass': case 'neon': case 'beach': case 'blackpink': case 'igcertificate': case 'ytcertificate': {
                 if (!text) throw 'No Query Text'
                 replay(mess.wait)
                 XeonBotInc.sendMessage(m.chat, { image: { url: api('zenz', '/ephoto/' + command, { text: text }, 'apikey') }, caption: `Ephoto ${command}` }, { quoted: m })
@@ -1936,12 +1952,12 @@ To download media, please click one of the buttons below or enter the ytmp3/ytmp
 		}
 	    }
 	    break
-                case 'ringtone': {
+        case 'ringtone': {
 		if (!text) throw `Example : ${prefix + command} black rover`
         let { ringtone } = require('./lib/scraper')
 		let anu = await ringtone(text)
-		let result ='https://api.lolhuman.xyz/api/gtts/id?apikey=e6dc6580d52d9fb557b85ef9&text=${text}'
-		XeonBotInc.sendMessage(m.chat, { audio: { url: result }, fileName: 'asuu.mp3', mimetype: 'audio/mpeg' }, { quoted: m })
+		let result = anu[Math.floor(Math.random() * anu.length)]
+		XeonBotInc.sendMessage(m.chat, { audio: { url: result.audio }, fileName: result.title+'.mp3', mimetype: 'audio/mpeg' }, { quoted: m })
 	    }
 	    break
 		case 'iqra': {
@@ -2112,22 +2128,6 @@ ${Object.entries(global.db.sticker).map(([key, value], index) => `${index + 1}. 
                 reply('Done!')
             }
             break
-            case 'q': case 'quoted': {
-		if (!m.quoted) return reply('Reply Message!!')
-		let wokwol = await XeonBotInc.serializeM(await m.getQuotedObj())
-		if (!wokwol.quoted) return reply('The message you replied to does not contain a reply')
-		await wokwol.quoted.copyNForward(m.chat, true)
-            }
-	    break
-            case 'copy': {
-                if (!m.quoted) throw 'Reply Message You Want To Save In Database'
-                if (!text) throw `Example : ${prefix + command} message name`
-                let msgs = global.db.database
-                msgs[text.toLowerCase()] = quoted.fakeObj
-                XeonBotInc.copyNForward(m.chat, msgs[text.toLowerCase()], true)
-		replay(m.quoted)
-            }
-  break
             case 'addmsg': {
                 if (!m.quoted) throw 'Reply Message You Want To Save In Database'
                 if (!text) throw `Example : ${prefix + command} message name`
@@ -2308,7 +2308,7 @@ case 'sendkontak': case 'sendcontact': {
                 reply('Successfully Changed To Public Usage')
             }
             break
-            case 'selhhf': {
+            case 'self': {
                 if (!isCreator) throw mess.owner
                 XeonBotInc.public = false
                 reply('Successfully Changed To Self Usage')
@@ -2361,36 +2361,38 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 reply(respon)
             }
             break
-            case 'owner': case 'admin': case 'creator': {
+            case 'owner': case 'creator': {
             XeonBotInc.sendContact(m.chat, global.pemilik, m)
+           const devsound = fs.readFileSync('./XeonMedia/botdev.mp3') //u can change the music in XeonMedia folder
+           XeonBotInc.sendMessage(m.chat, { audio: devsound, mimetype: 'audio/mp4', ptt: true, quoted: m })
             }
             break
                     case 'bug': case 'report': {
                     	if(!text) throw `Enter The Bug Example\n\n${command} Menu Error `
-                    	XeonBotInc.sendMessage(`6283110011351@s.whatsapp.net`, {text: `*Bug Report From:* wa.me/${m.sender.split("@")[0]}
+                    	XeonBotInc.sendMessage(`916909137213@s.whatsapp.net`, {text: `*Bug Report From:* wa.me/${m.sender.split("@")[0]}
 Report Message: ${text}` })
 reply(`Successfully Reported To The Owner\n\nPlease Make Sure The Bug Is Valid, If You Play With This, Use This Feature Again And Again For No Reason, You Will Be Blocked For Sure !`)
                     }
                     break 
-case 'tedds': case 'tesdt': case 'aflive': case 'fbot': case 'frobot': case 'cfheems': case 'fdoge':{
+case 'tes': case 'test': case 'alive': case 'bot': case 'robot': case 'cheems': case 'doge':{
                 anu = `Hi ${pushname}
-Cheems Bot With You Forever!! 🐶🤚`
+cZ Unch With You Forever!! 🐶🤚`
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                     templateMessage: {
                         hydratedTemplate: {
                             hydratedContentText: anu,
                             locationMessage: {
                             jpegThumbnail: fs.readFileSync('./XeonMedia/cheemspic.jpg')},
-                            hydratedFooterText: `Cheems Bot-MD`,
+                            hydratedFooterText: `cZ Unch`,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: 'YouTube📍',
-                                    url: 'YouTube.com/xZrinva'
+                                    displayText: 'WA Owner👤',
+                                    url: 'https://wa.me/6281328040710'
                                 }
                             }, {
                             	urlButton: {
-                                displayText: 'Script🔖',
-                                    url: 'https://github.com/DGXeon/CheemsBot-MD'
+                                displayText: 'Instagram',
+                                    url: 'https://instagram.com/adiibah_asho'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -2415,7 +2417,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 }
 break
 
-            case 'gas': case 'menu': case 'help': case '?': {
+            case 'list': case 'menu': case 'help': case '?': {
             	timestampe = speed();
 latensie = speed() - timestampe
                 anu = ``
@@ -2429,50 +2431,42 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 How Are You? 😊
 
 
-❏「 Fleyvin Shop 」
+❏「 INFO BOT 」
 
-┏━━⬣   🎀  𝑀𝑒𝓃ju𝓊𝒶𝓁  🎀
-┃⬡ Diamond Free Fire (via id)
-┃⬡ Diamond Mobile Legends (via id)
-┃⬡ Voucher Garena Shell
-┃⬡ OTP indo (+62) / NOKOS
-┃⬡ Jasa Pembuatan BOT WhatsApp
-┗⬣
-
-━━━━━ 𝗞𝗼𝗱𝗲 𝗕𝗼𝘁 ━━━━━
-#ff = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐃𝐌 𝐅𝐅
-#ml = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐃𝐌 𝐅𝐅
-#gs = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐆𝐚𝐫𝐞𝐧𝐚 𝐒𝐡𝐞𝐥𝐥
-#otp = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐎𝐓𝐏
-#bot = 𝐏𝐫𝐢𝐜𝐞𝐥𝐢𝐬𝐭 𝐉𝐚𝐬𝐚 𝐁𝐮𝐚𝐭 𝐁𝐎𝐓
-#pay = 𝐃𝐚𝐟𝐭𝐚𝐫 𝐌𝐞𝐭𝐨𝐝𝐞 𝐏𝐞𝐦𝐛𝐚𝐲𝐚𝐫𝐚𝐧 𝐅𝐥𝐞𝐲𝐯𝐢𝐧 𝐒𝐡𝐨𝐩
+𝗦𝗽𝗲𝗲𝗱 : ${latensie.toFixed(4)} miliseconds
+𝗥𝘂𝗻𝘁𝗶𝗺𝗲 : ${runtime(process.uptime())}
+𝗕𝗼𝘁 𝗡𝗮𝗺𝗲 : ${global.botnma}
+𝗢𝘄𝗻𝗲𝗿 𝗡𝗮𝗺𝗲 : ${global.ownernma}
+𝗢𝘄𝗻𝗲𝗿 𝗡𝘂𝗺𝗯𝗲𝗿 : ${global.owner}
+𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : ${os.hostname()}
+𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : ${os.platform()}
 
 
-𝘒𝘭𝘪𝘬 𝘛𝘰𝘮𝘣𝘰𝘭 𝘥𝘪 𝘉𝘢𝘸𝘢𝘩 𝘪𝘯𝘪
+Please Select Button Below
 `,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: 'Aplikasi Fleyvin Shop📱',
-                                    url: 'https://play.google.com/store/apps/details?id=com.fleyvin'
+                                    displayText: 'WA Owner👤',
+                                    url: 'https://wa.me/6281328040710'
                                 }
                             }, {
                             	urlButton: {
-                                displayText: 'YouTube📍',
-                                    url: 'YouTibe.com/xZrinva'
+                                displayText: 'Instagram',
+                                    url: 'https://instagram.com/adiibah_asho'
                                 }
                             }, {
                                 quickReplyButton: {
-                                    displayText: '𝗟𝗶𝘀𝘁 𝗠𝗲𝗻𝘂🧾',
-                                    id: `${prefix}list`
+                                    displayText: '🍇All Menu🍇',
+                                    id: `${prefix}allmenu`
                                 }
                                 }, {
                                 quickReplyButton: {
-                                    displayText: '𝗠𝗲𝘁𝗼𝗱𝗲 𝗣𝗲𝗺𝗯𝗮𝘆𝗮𝗿𝗮𝗻💳',
-                                    id: `${prefix}pay`
+                                    displayText: '🍒List Menu🍒',
+                                    id: `${prefix}command`
                                 }
                                 }, {
                                 quickReplyButton: {
-                                    displayText: '👤Admin👤',
+                                    displayText: '👤Owner👤',
                                     id: `${prefix}owner`
                                 }
                             }]
@@ -2482,218 +2476,111 @@ How Are You? 😊
                 XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
                 }
 break
-case 'menuadmin': case 'adminmenu': case 'vip': case 'ownermenu': case 'menuowner':{
-let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-                listMessage :{
-                    title: `*OWNER BOT MENU*`,
-                    description: `
-「 *Menu Owner BOT* 」
-  ➙ ${prefix}chat [option]
-  ➙ ${prefix}join [link]
-  ➙ ${prefix}setbotpp
-  ➙ ${prefix}block @user
-  ➙ ${prefix}unblock @user
-  ➙ ${prefix}bcgroup
-  ➙ ${prefix}bcall
-
-  ➙ ${prefix}setcmd
-  ➙ ${prefix}listcmd
-  ➙ ${prefix}delcmd
-  ➙ ${prefix}lockcmd
-  ➙ ${prefix}addmsg
-  ➙ ${prefix}listmsg
-  ➙ ${prefix}getmsg
-  ➙ ${prefix}delmsg
-
-「 *Menu Owner di Grup* 」
-  ➙ ${prefix}add nomor
-  ➙ ${prefix}kick @tag
-  ➙ ${prefix}hidetag teks
-  ➙ ${prefix}tagall teks
-  ➙ ${prefix}setgrouppp
-  ➙ ${prefix}setname [text]
-  ➙ ${prefix}editinfo [option]
-
-  ➙ ${prefix}groupp open/close
-  ➙ ${prefix}antilink on/off
-  ➙ ${prefix}antiwame on/off
-  ➙ ${prefix}mute on/off
-  ➙ ${prefix}keluar
-  ➙ ${prefix}grouplink
-  ➙ ${prefix}grupinfo
-
- Pilih Menu di Bawah ini\n\n`,
-                    buttonText: "Menu",
-                    footerText: "_Fleyvin Shop_",
-                    listType: "SINGLE_SELECT",
-                    sections: [{
-								"title": "Group Menu",
-								"rows": [
-									{
-										"title": "OPEN GROUP PUBLIK",
-										"description": "Membuka group chat",
-										"rowId": `${prefix}groupp open`
-									},
-									{
-										"title": "CLOSE GROUP",
-										"description": "Menutup Group Chat",
-										"rowId": `${prefix}groupp close`
-									},
-									{
-										"title": "Anti Link WA ON",
-										"description": "Sistem Antilink WA ON",
-										"rowId": `${prefix}antilink on`
-									},
-										{
-											"title": "Anti Link WA OFF",
-										"description": "Sistem Antilink WA OFF",
-										"rowId": `${prefix}antilink off`
-									},
-										{
-											"title": "Anti Link WA.ME",
-										"description": "Sistem Antilink WA.ME ON",
-										"rowId": `${prefix}antiwame on`
-									},
-										{
-											"title": "Anti Link WA.ME OFF",
-										"description": "Sistem Antilink WA.ME OFF",
-										"rowId": `${prefix}antiwame off`
-									},
-										{
-											"title": "Mute Group ON",
-										"description": "Sistem Mute Group WA ON",
-										"rowId": `${prefix}mute on`
-									},
-										{
-											"title": "Mute Group OFF",
-										"description": "Sistem Mute Group WA OFF",
-										"rowId": `${prefix}mute off`
-									}
-								]
-							}
-						],
-          listType: 1
-                }
-            }), {})
-            XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-case 'group': case 'groupset': case 'groupsetting': case 'grup': case 'grub':{
-let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-                listMessage :{
-                    title: `*OWNER BOT MENU*`,
-                    description: `
- Pilih Menu di Bawah ini\n`,
-                    buttonText: "Menu",
-                    footerText: "_Fleyvin Shop_",
-                    listType: "SINGLE_SELECT",
-                    sections: [{
-								"title": "Group Menu",
-								"rows": [
-									{
-										"title": "OPEN GROUP PUBLIK",
-										"description": "Membuka group chat",
-										"rowId": `${prefix}groupp open`
-									},
-									{
-										"title": "CLOSE GROUP",
-										"description": "Menutup Group Chat",
-										"rowId": `${prefix}groupp close`
-									},
-									{
-										"title": "Anti Link WA ON",
-										"description": "Sistem Antilink WA ON",
-										"rowId": `${prefix}antilink on`
-									},
-										{
-											"title": "Anti Link WA OFF",
-										"description": "Sistem Antilink WA OFF",
-										"rowId": `${prefix}antilink off`
-									},
-										{
-											"title": "Anti Link WA.ME",
-										"description": "Sistem Antilink WA.ME ON",
-										"rowId": `${prefix}antiwame on`
-									},
-										{
-											"title": "Anti Link WA.ME OFF",
-										"description": "Sistem Antilink WA.ME OFF",
-										"rowId": `${prefix}antiwame off`
-									},
-										{
-											"title": "Mute Group ON",
-										"description": "Sistem Mute Group WA ON",
-										"rowId": `${prefix}mute on`
-									},
-										{
-											"title": "Mute Group OFF",
-										"description": "Sistem Mute Group WA OFF",
-										"rowId": `${prefix}mute off`
-									}
-								]
-							}
-						],
-          listType: 1
-                }
-            }), {})
-            XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
-case 'command': case 'list': case 'listmenu':{
+case 'command':{
 let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 listMessage :{
                     title: `Hi ${pushname}`,
-                    description: `Silahkan Pilih Menu di Bawah ini\n\n`,
+                    description: `Please Choose The Menu\n\n`,
                     buttonText: "Menu",
-                    footerText: "_Fleyvin Shop_",
+                    footerText: "_cZ Unch_",
                     listType: "SINGLE_SELECT",
                     sections: [{
-								"title": "List Produk",
+								"title": "Group Features",
 								"rows": [
 									{
-										"title": "Free Fire",
-										"description": "List Harga Diamond FF",
-										"rowId": `${prefix}ff`
+										"title": "Group Menu",
+										"description": "Displays The List Of Group Features",
+										"rowId": `${prefix}grupmenu`
+									}
+								]
+							},
+							{
+								"title": "Bot Features",
+								"rows": [
+									{
+										"title": "All Menu",
+										"description": "Displays The List Of All The Features!",
+										"rowId": `${prefix}allmenu`
 									},
 									{
-										"title": "Mobile Legends",
-										"description": "List Harga Diamond MLBB",
-										"rowId": `${prefix}ml`
+										"title": "Download Menu",
+										"description": "Displays The List Of Download Features",
+										"rowId": `${prefix}downloadmenu`
 									},
 									{
-										"title": "Garena Shell",
-										"description": "List Harga Garena Shell",
-										"rowId": `${prefix}gs`
+										"title": "Search Menu",
+										"description": "Displays The List Of Searching Features",
+										"rowId": `${prefix}searchmenu`
 									},
 										{
-											"title": "OTP / NOKOS",
-										"description": "List Harga OTP indo / NOKOS",
-										"rowId": `${prefix}otp`
+											"title": "Image Menu",
+										"description": "Displays The List Of Image Features",
+										"rowId": `${prefix}imagemenu`
 										},
 										{
-											"title": "BOT WhatsApp",
-										"description": "Jasa Pembuatan BOT WhatsApp",
-										"rowId": `${prefix}bot`
+											"title": "Fun Menu",
+										"description": "Displays The List Of Fun Features",
+										"rowId": `${prefix}funmenu`
+										},
+										{
+											"title": "Convert Menu",
+										"description": "Displays The List Of Convert Features",
+										"rowId": `${prefix}convertmenu`
+										},
+										{
+										"title": "Miscellaneous Menu",
+										"description": "Displays The List Of Miscellaneous Features",
+										"rowId": `${prefix}nocategorymenu`
+										},
+										{
+											"title": "Database Menu",
+										"description": "Displays The List Of Database Features",
+										"rowId": `${prefix}databasemenu`
+										},
+										{
+											"title": "Voice Changer Menu",
+										"description": "Displays The List Of Voice Changing Features",
+										"rowId": `${prefix}voicemenu`
 										}
 								]
 							},
 							{
-								"title": "Metode Pembayaran",
+								"title": "Chat with fellow users",
 								"rows": [
 									{
-										"title": "Metode Pembayaran",
-										"description": "List Metode Pembayaran Fleyvin Shop",
-										"rowId": `${prefix}pay`
+										"title": "Anonymous Chat Menu",
+										"description": "Displays The List Of Anonymous Chat Features",
+										"rowId": `${prefix}anonymouschatmenu`
 									}
 								]
 							},
 							{
-								"title": "Sosial Media Fleyvin",
+								"title": "Group System",
 								"rows": [
 									{
-										"title": "Temukan Kami",
-										"description": "Menampilkan Sosial Media Fleyvin Group",
-										"rowId": `${prefix}about`
+										"title": "System Menu",
+										"description": "Displays The List Of Group System Features",
+										"rowId": `${prefix}sistemmenu`
+									}
+								]
+							},
+							{
+								"title": "Owner",
+								"rows": [
+									{
+										"title": "Owner Menu",
+										"description": "Displays The List Of Owner Features",
+										"rowId": `${prefix}ownermenu`
+									}
+								]
+							},
+							{
+								"title": "Credit",
+								"rows": [
+									{
+										"title": "Thanks To",
+										"description": "Displays The List Of Credit Of The Bot !!",
+										"rowId": `${prefix}tqtt`
 									}
 								]
 							}
@@ -2704,85 +2591,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
             XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
             break
-case 'fleyvinshop': case 'about': case 'fleyvin':
-rabout(`┏━━⬣
-┃⬡ Instagram :
-┃    Instagram.com/fleyvin_soft
-┃⬡ YouTube :
-┃    YouTube.com/xZrinva
-┃⬡ PlayStore :
-┃    play.google.com/store/apps/details?id=com.fleyvin
-┃⬡ Group WhatsApp (Fleyvin Shop) :
-┃    chat.whatsapp.com/EMP3AtdiM61IfX8spLzhWK
-┃⬡ Nomor WhatsApp (Fleyvin Group) :
-┃    wa.me/6283110011351
-┃⬡ Group Telegram (Fleyvin Shop) :
-┃    t.me/fleyvin_shop
-┃⬡ Nomor Tele (Fleyvin Group) :
-┃    t.me/fazrin_mauza
-┗━━⬣
-`)
-break
-case 'pay': case 'payment': case 'bayar': case 'pembayaran': case 'metodepembayaran':
-rpay(`┏━━⬣
-┃⬡ *GOPAY* : SCAN QRIS
-┃    Minta ke Admin
-
-┃⬡ *DANA* : 089630883352
-┃    A/n Alfi Reyhan
-
-┃⬡ *OVO* : 089630883352
-┃    A/n Alfi Reyhan
-
-┃⬡ *ShopeePay* : 083110011351
-┃    A/n Ngairah
-
-┃⬡ *SeaBank* : 901828965924
-┃    A/n Ngairah
-
-┃⬡ *BSI* : 089630883352
-┃    A/n Ngairah
-
-┃⬡ *BRI* : 089630883352
-┃    A/n Alfi Reyhan
-
-┃⬡ QRIS all payment
-┃    *Minta ke Admin sebut nominal pembayaran*
-┗━━⬣
-`)
-break
-case 'ff': case 'freefire': case 'epep':
-rff(`Via ID || 1-5 Menit
-Status : READY
-
-70       💎 : Rp 10.000
-100     💎 : Rp 15.000
-120.    💎 : Rp 18.000
-140.    💎 : Rp 20.000
-150.    💎 : Rp 22.000
-200.    💎 : Rp 28.000
-210     💎 : Rp 30.000
-280     💎 : Rp 39.000
-355     💎 : Rp 48.000
-425     💎 : Rp 58.000
-500     💎 : Rp 67.000
-720     💎 : Rp 95.000
-860     💎 : Rp 113.000
-1000   💎 : Rp 130.000
-1075   💎 : Rp 140.000
-1440   💎 : Rp 185.000
-2000   💎 : Rp 255.000
-2500   💎 : Rp 320.000
-
-MM :  30.000
-MB : 140.000
-͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏͏
-*FORMAT ORDER*
-ID :
-NICK :
-ORDER DM :`)
-break
-case 'grupmednu': {
+case 'grupmenu': {
 	            anu = `
   *Group Menu*
   
@@ -2804,11 +2613,11 @@ case 'grupmednu': {
                             hydratedContentText: anu,
                             locationMessage: {
                             jpegThumbnail: fs.readFileSync('./XeonMedia/cheemspic.jpg')},
-                            hydratedFooterText: `Cheems Bot-MD`,
+                            hydratedFooterText: `cZ Unch`,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    displayText: 'WA Owner👤',
+                                    url: 'https://wa.me/6281328040710'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -2846,11 +2655,11 @@ case 'downloadmenu': {
                             hydratedContentText: okemenu,
                             locationMessage: {
                             jpegThumbnail: fs.readFileSync('./XeonMedia/cheemspic.jpg')},
-                            hydratedFooterText: `Cheems Bot-MD`,
+                            hydratedFooterText: `cZ Unch`,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    displayText: 'WA Owner👤',
+                                    url: 'https://wa.me/6281328040710'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -2883,11 +2692,11 @@ case 'downloadmenu': {
                             hydratedContentText: anu,
                             locationMessage: {
                             jpegThumbnail: fs.readFileSync('./XeonMedia/cheemspic.jpg')},
-                            hydratedFooterText: `Cheems Bot-MD`,
+                            hydratedFooterText: `cZ Unch`,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    displayText: 'WA Owner👤',
+                                    url: 'https://wa.me/6281328040710'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -2901,24 +2710,6 @@ case 'downloadmenu': {
                 XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
 break
-               case 'groupp': case 'grhhup': {
-                if (!m.isGroup) throw mess.group
-                if (!isBotAdmins) throw mess.botAdmin
-                if (!isAdmins) throw mess.admin
-                if (args[0] === 'close'){
-                    await XeonBotInc.groupSettingUpdate(m.chat, 'announcement').then((res) => reply(`Successful Closing The Group`)).catch((err) => reply(jsonformat(err)))
-                } else if (args[0] === 'open'){
-                    await XeonBotInc.groupSettingUpdate(m.chat, 'not_announcement').then((res) => reply(`Successful Opening The Group`)).catch((err) => reply(jsonformat(err)))
-                } else {
-                let buttons = [
-                        { buttonId: 'group open', buttonText: { displayText: '⭕Open⭕' }, type: 1 },
-                        { buttonId: 'group close', buttonText: { displayText: '🚫Close🚫' }, type: 1 }
-                    ]
-                    await XeonBotInc.sendButtonText(m.chat, buttons, `Group Mode`, XeonBotInc.user.name, m)
-
-             }
-            }
-            break
 case 'randommenu': {
 	anu = `
 	*Random Menu*
@@ -2932,11 +2723,11 @@ case 'randommenu': {
                             hydratedContentText: anu,
                             locationMessage: {
                             jpegThumbnail: fs.readFileSync('./XeonMedia/cheemspic.jpg')},
-                            hydratedFooterText: `Cheems Bot-MD`,
+                            hydratedFooterText: `cZ Unch`,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    displayText: 'WA Owner👤',
+                                    url: 'https://wa.me/6281328040710'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -2964,11 +2755,11 @@ case 'funmenu': {
                             hydratedContentText: anu,
                             locationMessage: {
                             jpegThumbnail: fs.readFileSync('./XeonMedia/cheemspic.jpg')},
-                            hydratedFooterText: `Cheems Bot-MD`,
+                            hydratedFooterText: `cZ Unch`,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    displayText: 'WA Owner👤',
+                                    url: 'https://wa.me/6281328040710'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3004,11 +2795,11 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                             hydratedContentText: anu,
                             locationMessage: {
                             jpegThumbnail: fs.readFileSync('./XeonMedia/cheemspic.jpg')},
-                            hydratedFooterText: `Cheems Bot-MD`,
+                            hydratedFooterText: `cZ Unch`,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    displayText: 'WA Owner👤',
+                                    url: 'https://wa.me/6281328040710'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3038,11 +2829,11 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                             hydratedContentText: anu,
                             locationMessage: {
                             jpegThumbnail: fs.readFileSync('./XeonMedia/cheemspic.jpg')},
-                            hydratedFooterText: `Cheems Bot-MD`,
+                            hydratedFooterText: `cZ Unch`,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    displayText: 'WA Owner👤',
+                                    url: 'https://wa.me/6281328040710'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3096,11 +2887,11 @@ case 'horoscopemenukcodk': {
                             hydratedContentText: anu,
                             locationMessage: {
                             jpegThumbnail: fs.readFileSync('./XeonMedia/cheemspic.jpg')},
-                            hydratedFooterText: `Cheems Bot-MD`,
+                            hydratedFooterText: `cZ Unch`,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    displayText: 'WA Owner👤',
+                                    url: 'https://wa.me/6281328040710'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3134,11 +2925,11 @@ case 'convertmenu': {
                             hydratedContentText: anu,
                             locationMessage: {
                             jpegThumbnail: fs.readFileSync('./XeonMedia/cheemspic.jpg')},
-                            hydratedFooterText: `Cheems Bot-MD`,
+                            hydratedFooterText: `cZ Unch`,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    displayText: 'WA Owner👤',
+                                    url: 'https://wa.me/6281328040710'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3174,11 +2965,11 @@ case 'nocategorymenu': {
                             hydratedContentText: anu,
                             locationMessage: {
                             jpegThumbnail: fs.readFileSync('./XeonMedia/cheemspic.jpg')},
-                            hydratedFooterText: `Cheems Bot-MD`,
+                            hydratedFooterText: `cZ Unch`,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    displayText: 'WA Owner👤',
+                                    url: 'https://wa.me/6281328040710'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3211,11 +3002,11 @@ case 'databasemenu': {
                             hydratedContentText: anu,
                             locationMessage: {
                             jpegThumbnail: fs.readFileSync('./XeonMedia/cheemspic.jpg')},
-                            hydratedFooterText: `Cheems Bot-MD`,
+                            hydratedFooterText: `cZ Unch`,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    displayText: 'WA Owner👤',
+                                    url: 'https://wa.me/6281328040710'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3243,11 +3034,11 @@ case 'anonymouschatmenu': {
                             hydratedContentText: anu,
                             locationMessage: {
                             jpegThumbnail: fs.readFileSync('./XeonMedia/cheemspic.jpg')},
-                            hydratedFooterText: `Cheems Bot-MD`,
+                            hydratedFooterText: `cZ Unch`,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    displayText: 'WA Owner👤',
+                                    url: 'https://wa.me/6281328040710'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3275,11 +3066,11 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                             hydratedContentText: anu,
                             locationMessage: {
                             jpegThumbnail: fs.readFileSync('./XeonMedia/cheemspic.jpg')},
-                            hydratedFooterText: `Cheems Bot-MD`,
+                            hydratedFooterText: `cZ Unch`,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    displayText: 'WA Owner👤',
+                                    url: 'https://wa.me/6281328040710'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3293,7 +3084,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
 break
-  case 'ownermehsnu': {
+  case 'ownermenu': {
   	anu = `
   *Owner Menu*
   
@@ -3312,11 +3103,11 @@ break
                             hydratedContentText: anu,
                             locationMessage: {
                             jpegThumbnail: fs.readFileSync('./XeonMedia/cheemspic.jpg')},
-                            hydratedFooterText: `Cheems Bot-MD`,
+                            hydratedFooterText: `cZ Unch`,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    displayText: 'WA Owner👤',
+                                    url: 'https://wa.me/6281328040710'
                                 }
                             }, {
                                 quickReplyButton: {
@@ -3330,7 +3121,7 @@ break
                 XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
 break
-  case 'allirirmenu': {
+  case 'allmenu': {
   	anu = `
   *All Menu*
   
@@ -3453,11 +3244,11 @@ break
                             hydratedContentText: anu,
                             locationMessage: {
                             jpegThumbnail: fs.readFileSync('./XeonMedia/cheemspic.jpg')},
-                            hydratedFooterText: `Cheems Bot-MD`,
+                            hydratedFooterText: `cZ Unch`,
                             hydratedButtons: [{
                                 urlButton: {
-                                    displayText: 'YouTube📍',
-                                    url: 'https://wa.me/6283110011351'
+                                    displayText: 'WA Owner👤',
+                                    url: 'https://wa.me/6281328040710'
                                 }
                             }, {
                                 quickReplyButton: {
